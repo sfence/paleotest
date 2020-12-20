@@ -500,7 +500,7 @@ function paleotest.logic_play_with_ball(self, prty)
 		if #objs < 1 then return true end
 		for _, obj in ipairs(objs) do
 			if obj:get_luaentity()
-			and obj:get_luaentity().name == "paleotest:pursuit_ball_ent" then
+			and obj:get_luaentity().name == "hades_paleotest:pursuit_ball_ent" then
 				if mobkit.is_queue_empty_low(self) then
 					local obj_pos = obj:get_pos()
 					if vec_dist(pos, obj_pos) > self.collisionbox[4] + self.reach then
@@ -533,7 +533,7 @@ function paleotest.logic_play_with_post(self,prty)
 		local pos = mobkit.get_stand_pos(self)
 		local pos1 = {x=pos.x -self.view_range,y=pos.y-1,z=pos.z-self.view_range}
 		local pos2 = {x=pos.x +self.view_range,y=pos.y+1,z=pos.z+self.view_range}
-		local post = minetest.find_nodes_in_area(pos1,pos2,"paleotest:scratching_post")
+		local post = minetest.find_nodes_in_area(pos1,pos2,"hades_paleotest:scratching_post")
 		if #post < 1 then return end
 		local go_to = find_closest_pos(pos, post)
 		if mobkit.is_queue_empty_low(self)

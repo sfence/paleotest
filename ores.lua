@@ -12,8 +12,8 @@
 
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "paleotest:fossil_block",
-	wherein        = "default:stone",
+	ore            = "hades_paleotest:fossil_block",
+	wherein        = "hades_core:stone",
 	clust_scarcity = 64 * 64 * 64,
 	clust_num_ores = 5,
 	clust_size     = 3,
@@ -23,8 +23,8 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "paleotest:fossil_block",
-	wherein        = "default:stone",
+	ore            = "hades_paleotest:fossil_block",
+	wherein        = "hades_core:stone",
 	clust_scarcity = 32 * 32 * 32,
 	clust_num_ores = 4,
 	clust_size     = 3,
@@ -34,8 +34,8 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "paleotest:fossil_block",
-	wherein        = "default:stone",
+	ore            = "hades_paleotest:fossil_block",
+	wherein        = "hades_core:stone",
 	clust_scarcity = 16 * 16 * 16,
 	clust_num_ores = 5,
 	clust_size     = 3,
@@ -43,11 +43,12 @@ minetest.register_ore({
 	y_min          = -31000,
 })
 
--- Suspicious Permafrost --
+-- Suspicious Tuff --
 
+--[[
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "paleotest:suspicious_permafrost",
+	ore            = "hades_paleotest:suspicious_permafrost",
 	wherein        = "default:permafrost_with_stones",
 	clust_scarcity = 32 * 32 * 32,
 	clust_num_ores = 5,
@@ -55,14 +56,16 @@ minetest.register_ore({
 	y_max          = 256,
 	y_min          = -256,
 })
+--]]
 
 minetest.register_ore({
 	ore_type       = "scatter",
-	ore            = "paleotest:suspicious_permafrost",
-	wherein        = "default:permafrost",
+	ore            = "hades_paleotest:suspicious_tuff",
+	wherein        = "hades_core:tuff",
 	clust_scarcity = 32 * 32 * 32,
 	clust_num_ores = 4,
 	clust_size     = 3,
 	y_max          = 256,
 	y_min          = -256,
 })
+

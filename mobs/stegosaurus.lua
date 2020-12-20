@@ -64,7 +64,7 @@ local function stegosaurus_logic(self)
             if prty < 14 and self.hunger < self.max_hunger then
                 if self.feeder_timer == 1 then
                     paleotest.hq_go_to_feeder(self, 14,
-                                              "paleotest:feeder_herbivore")
+                                              "hades_paleotest:feeder_herbivore")
                 end
             end
 
@@ -123,7 +123,7 @@ local function stegosaurus_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:stegosaurus", {
+minetest.register_entity("hades_paleotest:stegosaurus", {
     -- Stats
     max_hp = 62,
     armor_groups = {fleshy = 80},
@@ -193,7 +193,7 @@ minetest.register_entity("paleotest:stegosaurus", {
     rivals = {},
     follow = paleotest.global_flora,
     drops = {
-        {name = "paleotest:dinosaur_meat_raw", chance = 1, min = 2, max = 4}
+        {name = "hades_paleotest:dinosaur_meat_raw", chance = 1, min = 2, max = 4}
     },
     timeout = 0,
     logic = stegosaurus_logic,
@@ -204,9 +204,9 @@ minetest.register_entity("paleotest:stegosaurus", {
         if paleotest.feed_tame(self, clicker, 15, self.child, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:stegosaurus_guide",
+                                   "hades_paleotest:stegosaurus_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_stegosaurus_fg_female.png",
                 male_image = "paleotest_stegosaurus_fg_male.png",
@@ -232,4 +232,4 @@ minetest.register_entity("paleotest:stegosaurus", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:stegosaurus", "382f1bcc", "2a230dd9")
+mob_core.register_spawn_egg("hades_paleotest:stegosaurus", "382f1bcc", "2a230dd9")

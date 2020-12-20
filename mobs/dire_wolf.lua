@@ -105,7 +105,7 @@ local function dire_wolf_logic(self)
                 if self.hunger < self.max_hunger and self.feeder_timer == 1 then
                     if math.random(1, 2) == 1 then
                         paleotest.hq_go_to_feeder(self, 14,
-                                                  "paleotest:feeder_carnivore")
+                                                  "hades_paleotest:feeder_carnivore")
                     else
                         paleotest.hq_eat_items(self, 14)
                     end
@@ -172,7 +172,7 @@ local function dire_wolf_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:dire_wolf", {
+minetest.register_entity("hades_paleotest:dire_wolf", {
     -- Stats
     max_hp = 32,
     armor_groups = {fleshy = 100},
@@ -242,7 +242,7 @@ minetest.register_entity("paleotest:dire_wolf", {
     targets = {},
     predators = {},
     follow = paleotest.global_meat,
-    drops = {{name = "paleotest:mammal_meat_raw", chance = 1, min = 1, max = 3}},
+    drops = {{name = "hades_paleotest:mammal_meat_raw", chance = 1, min = 1, max = 3}},
     timeout = 0,
     logic = dire_wolf_logic,
     get_staticdata = mobkit.statfunc,
@@ -256,10 +256,10 @@ minetest.register_entity("paleotest:dire_wolf", {
         if paleotest.feed_tame(self, clicker, 10, self.child, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             if self._pregnant and clicker:get_player_control().sneak then
                 minetest.show_formspec(clicker:get_player_name(),
-                                       "paleotest:pregnant_guide",
+                                       "hades_paleotest:pregnant_guide",
                                        paleotest.pregnant_progress_page(self))
                 return
             end
@@ -270,7 +270,7 @@ minetest.register_entity("paleotest:dire_wolf", {
                 fg_image = "paleotest_dire_wolf_fg_white.png"
             end
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:dire_wolf_guide",
+                                   "hades_paleotest:dire_wolf_guide",
                                    paleotest.register_fg_entry(self, {
                 image = fg_image,
                 diet = "Carnivore",
@@ -295,4 +295,4 @@ minetest.register_entity("paleotest:dire_wolf", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:dire_wolf", "a0998fcc", "3b3630d9")
+mob_core.register_spawn_egg("hades_paleotest:dire_wolf", "a0998fcc", "3b3630d9")

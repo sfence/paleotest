@@ -63,7 +63,7 @@ local function smilodon_logic(self)
             if self.hunger < self.max_hunger and self.feeder_timer == 1 then
                 if math.random(1, 2) == 1 then
                     paleotest.hq_go_to_feeder(self, 14,
-                                              "paleotest:feeder_carnivore")
+                                              "hades_paleotest:feeder_carnivore")
                 else
                     paleotest.hq_eat_items(self, 14)
                 end
@@ -127,7 +127,7 @@ local function smilodon_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:smilodon", {
+minetest.register_entity("hades_paleotest:smilodon", {
     -- Stats
     max_hp = 37,
     armor_groups = {fleshy = 100},
@@ -193,7 +193,7 @@ minetest.register_entity("paleotest:smilodon", {
     targets = {},
     predators = {},
     follow = paleotest.global_meat,
-    drops = {{name = "paleotest:mammal_meat_raw", chance = 1, min = 1, max = 3}},
+    drops = {{name = "hades_paleotest:mammal_meat_raw", chance = 1, min = 1, max = 3}},
     timeout = 0,
     logic = smilodon_logic,
     get_staticdata = mobkit.statfunc,
@@ -203,15 +203,15 @@ minetest.register_entity("paleotest:smilodon", {
         if paleotest.feed_tame(self, clicker, 10, self.child, true) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             if self._pregnant and clicker:get_player_control().sneak then
                 minetest.show_formspec(clicker:get_player_name(),
-                                       "paleotest:pregnant_guide",
+                                       "hades_paleotest:pregnant_guide",
                                        paleotest.pregnant_progress_page(self))
                 return
             end
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:smilodon_guide",
+                                   "hades_paleotest:smilodon_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_smilodon_fg_female.png",
                 male_image = "paleotest_smilodon_fg_male.png",
@@ -237,4 +237,4 @@ minetest.register_entity("paleotest:smilodon", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:smilodon", "a2956fcc", "947e43d9")
+mob_core.register_spawn_egg("hades_paleotest:smilodon", "a2956fcc", "947e43d9")

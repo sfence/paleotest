@@ -99,7 +99,8 @@ function paleotest.find_string(tbl, val)
     return false
 end
 
-local path = minetest.get_modpath("paleotest")
+local modname = minetest.get_current_modname();
+local path = minetest.get_modpath(modname)
 
 -- API
 dofile(path.."/api/api.lua")
@@ -108,6 +109,9 @@ dofile(path.."/api/register.lua")
 if minetest.settings:get_bool("legacy_convert") then
 	dofile(path.."/legacy_convert.lua")
 end
+
+-- Hades Revisited support
+dofile(path.."/hades.lua")
 
 -- Items
 dofile(path.."/nodes.lua")

@@ -51,7 +51,7 @@ function paleotest.register_feeder(name, def)
         groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},
         legacy_facedir_simple = true,
         is_ground_content = false,
-        sounds = default.node_sound_stone_defaults(),
+        sounds = hades_sounds.node_sound_stone_defaults(),
         drawtype = "node",
 
         on_construct = function(pos)
@@ -152,7 +152,7 @@ function paleotest.register_feeder(name, def)
     })
 end
 
-paleotest.register_feeder("paleotest:feeder_carnivore", {
+paleotest.register_feeder("hades_paleotest:feeder_carnivore", {
     description = "Carnivore Feeder",
     tiles = {
         "paleotest_feeder_carnivore_top.png",
@@ -165,7 +165,7 @@ paleotest.register_feeder("paleotest:feeder_carnivore", {
     input = paleotest.global_meat
 })
 
-paleotest.register_feeder("paleotest:feeder_piscivore", {
+paleotest.register_feeder("hades_paleotest:feeder_piscivore", {
     description = "Piscivore Feeder",
     tiles = {
         "paleotest_feeder_piscivore_top.png",
@@ -178,7 +178,7 @@ paleotest.register_feeder("paleotest:feeder_piscivore", {
     input = paleotest.global_fish
 })
 
-paleotest.register_feeder("paleotest:feeder_herbivore", {
+paleotest.register_feeder("hades_paleotest:feeder_herbivore", {
     description = "Herbivore Feeder",
     tiles = {
         "paleotest_feeder_herbivore_top.png",

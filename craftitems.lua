@@ -9,7 +9,7 @@ local creative = minetest.settings:get_bool("creative")
 -- Whip --
 ----------
 
-minetest.register_tool("paleotest:whip", {
+minetest.register_tool("hades_paleotest:whip", {
 	description = "Whip",
 	inventory_image = "paleotest_whip.png",
 	wield_image = "paleotest_whip.png^[transformFYR90",
@@ -20,7 +20,7 @@ minetest.register_tool("paleotest:whip", {
 -- Field Guide --
 -----------------
 
-minetest.register_craftitem("paleotest:field_guide", {
+minetest.register_craftitem("hades_paleotest:field_guide", {
 	description = "Prehistoric Field Guide",
 	inventory_image = "paleotest_field_guide.png",
 	wield_image = "paleotest_field_guide.png",
@@ -33,14 +33,14 @@ minetest.register_craftitem("paleotest:field_guide", {
 
 -- Dinosaur Meat --
 
-minetest.register_craftitem("paleotest:dinosaur_meat_raw", {
+minetest.register_craftitem("hades_paleotest:dinosaur_meat_raw", {
 	description = "Raw Dinosaur Meat",
 	inventory_image = "paleotest_dinosaur_meat_raw.png",
 	groups = {eatable = 1, meat = 1, raw = 1},
 	on_use = minetest.item_eat(2)
 })
 
-minetest.register_craftitem("paleotest:dinosaur_meat_cooked", {
+minetest.register_craftitem("hades_paleotest:dinosaur_meat_cooked", {
 	description = "Cooked Dinosaur Meat",
 	inventory_image = "paleotest_meat_cooked.png",
 	groups = {eatable = 1, meat = 1, cooked = 1},
@@ -49,14 +49,14 @@ minetest.register_craftitem("paleotest:dinosaur_meat_cooked", {
 
 -- Reptile Meat --
 
-minetest.register_craftitem("paleotest:reptile_meat_raw", {
+minetest.register_craftitem("hades_paleotest:reptile_meat_raw", {
 	description = "Raw Reptile Meat",
 	inventory_image = "paleotest_dinosaur_meat_raw.png",
 	groups = {eatable = 1, meat = 1, raw = 1},
 	on_use = minetest.item_eat(2)
 })
 
-minetest.register_craftitem("paleotest:reptile_meat_cooked", {
+minetest.register_craftitem("hades_paleotest:reptile_meat_cooked", {
 	description = "Cooked Reptile Meat",
 	inventory_image = "paleotest_meat_cooked.png",
 	groups = {eatable = 1, meat = 1, cooked = 1},
@@ -65,14 +65,14 @@ minetest.register_craftitem("paleotest:reptile_meat_cooked", {
 
 -- Mammal Meat --
 
-minetest.register_craftitem("paleotest:mammal_meat_raw", {
+minetest.register_craftitem("hades_paleotest:mammal_meat_raw", {
 	description = "Raw Mammal Meat",
 	inventory_image = "paleotest_mammal_meat_raw.png",
 	groups = {eatable = 1, meat = 1, raw = 1},
 	on_use = minetest.item_eat(2)
 })
 
-minetest.register_craftitem("paleotest:mammal_meat_cooked", {
+minetest.register_craftitem("hades_paleotest:mammal_meat_cooked", {
 	description = "Cooked Mammal Meat",
 	inventory_image = "paleotest_meat_cooked.png",
 	groups = {eatable = 1, meat = 1, cooked = 1},
@@ -81,14 +81,14 @@ minetest.register_craftitem("paleotest:mammal_meat_cooked", {
 
 -- Fish Meat --
 
-minetest.register_craftitem("paleotest:fish_meat_raw", {
+minetest.register_craftitem("hades_paleotest:fish_meat_raw", {
 	description = "Raw Fish Meat",
 	inventory_image = "paleotest_fish_meat_raw.png",
 	groups = {eatable = 1, meat = 1, raw = 1},
 	on_use = minetest.item_eat(2)
 })
 
-minetest.register_craftitem("paleotest:fish_meat_cooked", {
+minetest.register_craftitem("hades_paleotest:fish_meat_cooked", {
 	description = "Cooked Fish Meat",
 	inventory_image = "paleotest_meat_cooked.png",
 	groups = {eatable = 1, meat = 1, cooked = 1},
@@ -99,37 +99,37 @@ minetest.register_craftitem("paleotest:fish_meat_cooked", {
 -- Fossils and Bones --
 -----------------------
 
-minetest.register_craftitem("paleotest:fossil", { -- Fossil
+minetest.register_craftitem("hades_paleotest:fossil", { -- Fossil
 	description = "Fossil",
 	inventory_image = "paleotest_fossil.png",
 	groups = {fossil = 1},
 })
 
-minetest.register_craftitem("paleotest:plant_fossil", { -- Plant Fossil
+minetest.register_craftitem("hades_paleotest:plant_fossil", { -- Plant Fossil
 	description = "Plant Fossil",
 	inventory_image = "paleotest_plant_fossil.png",
 	groups = {fossil = 1},
 })
 
-minetest.register_craftitem("paleotest:ancient_bones", { -- Ancient Bones
+minetest.register_craftitem("hades_paleotest:ancient_bones", { -- Ancient Bones
 	description = "Ancient Bones",
 	inventory_image = "paleotest_ancient_bones.png",
 	groups = {fossil = 1},
 })
 
-minetest.register_craftitem("paleotest:fossilized_cycad_seeds", { -- Fossil
+minetest.register_craftitem("hades_paleotest:fossilized_cycad_seeds", { -- Fossil
 	description = "Fossilized Cycad Seeds",
 	inventory_image = "paleotest_fossilized_cycad_seeds.png",
 	groups = {fossil = 1},
 })
 
-minetest.register_craftitem("paleotest:fossilized_horsetail_spores", { -- Fossil
+minetest.register_craftitem("hades_paleotest:fossilized_horsetail_spores", { -- Fossil
 	description = "Fossilized Horsetail Spores",
 	inventory_image = "paleotest_fossilized_horsetail_spores.png",
 	groups = {fossil = 1},
 })
 
-minetest.register_craftitem("paleotest:metasequoia_sapling_petrified", { -- Fossil
+minetest.register_craftitem("hades_paleotest:metasequoia_sapling_petrified", { -- Fossil
 	description = "Petrified Metasequoia Sapling",
 	inventory_image = "paleotest_metasequoia_sapling_petrified.png",
 	groups = {fossil = 1},
@@ -140,97 +140,97 @@ minetest.register_craftitem("paleotest:metasequoia_sapling_petrified", { -- Foss
 -- DNA --
 ---------
 
-minetest.register_craftitem("paleotest:dna_brachiosaurus", { -- Brachiosaurus DNA
+minetest.register_craftitem("hades_paleotest:dna_brachiosaurus", { -- Brachiosaurus DNA
 	description = "Brachiosaurus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_carnotaurus", { -- Carnotaurus DNA
+minetest.register_craftitem("hades_paleotest:dna_carnotaurus", { -- Carnotaurus DNA
 	description = "Carnotaurus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_dire_wolf", { -- Dire Wolf DNA
+minetest.register_craftitem("hades_paleotest:dna_dire_wolf", { -- Dire Wolf DNA
 	description = "Dire Wolf DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_dunkleosteus", { -- Dunkleosteus DNA
+minetest.register_craftitem("hades_paleotest:dna_dunkleosteus", { -- Dunkleosteus DNA
 	description = "Dunkleosteus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_elasmotherium", { -- Elasmotherium DNA
+minetest.register_craftitem("hades_paleotest:dna_elasmotherium", { -- Elasmotherium DNA
 	description = "Elasmotherium DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_mammoth", { -- Mammoth DNA
+minetest.register_craftitem("hades_paleotest:dna_mammoth", { -- Mammoth DNA
 	description = "Mammoth DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_mosasaurus", { -- Mosasaurus DNA
+minetest.register_craftitem("hades_paleotest:dna_mosasaurus", { -- Mosasaurus DNA
 	description = "Mosasaurus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_procoptodon", { -- Procoptodon DNA
+minetest.register_craftitem("hades_paleotest:dna_procoptodon", { -- Procoptodon DNA
 	description = "Procoptodon DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_plesiosaurus", { -- Plesiosaurus DNA
+minetest.register_craftitem("hades_paleotest:dna_plesiosaurus", { -- Plesiosaurus DNA
 	description = "Plesiosaurus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_pteranodon", { -- Pteranodon DNA
+minetest.register_craftitem("hades_paleotest:dna_pteranodon", { -- Pteranodon DNA
 	description = "Pteranodon DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_quetzalcoatlus", { -- Quetzalcoatlus DNA
+minetest.register_craftitem("hades_paleotest:dna_quetzalcoatlus", { -- Quetzalcoatlus DNA
 	description = "Quetzalcoatlus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_sarcosuchus", { -- Sarcosuchus DNA
+minetest.register_craftitem("hades_paleotest:dna_sarcosuchus", { -- Sarcosuchus DNA
 	description = "Sarcosuchus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_smilodon", { -- Smilodon DNA
+minetest.register_craftitem("hades_paleotest:dna_smilodon", { -- Smilodon DNA
 	description = "Smilodon DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_spinosaurus", { -- Spinosaurus DNA
+minetest.register_craftitem("hades_paleotest:dna_spinosaurus", { -- Spinosaurus DNA
 	description = "Spinosaurus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_stegosaurus", { -- Stegosaurus DNA
+minetest.register_craftitem("hades_paleotest:dna_stegosaurus", { -- Stegosaurus DNA
 	description = "Stegosaurus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_thylacoleo", { -- Thylacoleo DNA
+minetest.register_craftitem("hades_paleotest:dna_thylacoleo", { -- Thylacoleo DNA
 	description = "Thylacoleo DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_triceratops", { -- Triceratops DNA
+minetest.register_craftitem("hades_paleotest:dna_triceratops", { -- Triceratops DNA
 	description = "Triceratops DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_tyrannosaurus", { -- Tyrannosaurus DNA
+minetest.register_craftitem("hades_paleotest:dna_tyrannosaurus", { -- Tyrannosaurus DNA
 	description = "Tyrannosaurus DNA",
 	inventory_image = "paleotest_dna.png",
 })
 
-minetest.register_craftitem("paleotest:dna_velociraptor", { -- Velociraptor DNA
+minetest.register_craftitem("hades_paleotest:dna_velociraptor", { -- Velociraptor DNA
 	description = "Velociraptor DNA",
 	inventory_image = "paleotest_dna.png",
 })
@@ -239,51 +239,51 @@ minetest.register_craftitem("paleotest:dna_velociraptor", { -- Velociraptor DNA
 -- Eggs --
 ----------
 
-paleotest.register_egg("paleotest:brachiosaurus", 1.25, true)
+paleotest.register_egg("hades_paleotest:brachiosaurus", 1.25, true)
 
-paleotest.register_egg("paleotest:carnotaurus", 0.75, true)
+paleotest.register_egg("hades_paleotest:carnotaurus", 0.75, true)
 
-paleotest.register_egg("paleotest:pteranodon", 0.25, true)
+paleotest.register_egg("hades_paleotest:pteranodon", 0.25, true)
 
-paleotest.register_egg("paleotest:quetzalcoatlus", 0.75, true)
+paleotest.register_egg("hades_paleotest:quetzalcoatlus", 0.75, true)
 
-paleotest.register_egg("paleotest:sarcosuchus", 0.75, false)
+paleotest.register_egg("hades_paleotest:sarcosuchus", 0.75, false)
 
-paleotest.register_egg("paleotest:spinosaurus", 1, false)
+paleotest.register_egg("hades_paleotest:spinosaurus", 1, false)
 
-paleotest.register_egg("paleotest:stegosaurus", 0.75, true)
+paleotest.register_egg("hades_paleotest:stegosaurus", 0.75, true)
 
-paleotest.register_egg("paleotest:triceratops", 1, true)
+paleotest.register_egg("hades_paleotest:triceratops", 1, true)
 
-paleotest.register_egg("paleotest:tyrannosaurus", 1, false)
+paleotest.register_egg("hades_paleotest:tyrannosaurus", 1, false)
 
-paleotest.register_egg("paleotest:velociraptor", 0.5, true)
+paleotest.register_egg("hades_paleotest:velociraptor", 0.5, true)
 
 --------------
 -- Syringes --
 --------------
 
-paleotest.register_syringe("paleotest:dire_wolf",true)
+paleotest.register_syringe("hades_paleotest:dire_wolf",true)
 
-paleotest.register_syringe("paleotest:elasmotherium",true)
+paleotest.register_syringe("hades_paleotest:elasmotherium",true)
 
-paleotest.register_syringe("paleotest:mammoth",true)
+paleotest.register_syringe("hades_paleotest:mammoth",true)
 
-paleotest.register_syringe("paleotest:procoptodon",true)
+paleotest.register_syringe("hades_paleotest:procoptodon",true)
 
-paleotest.register_syringe("paleotest:smilodon",true)
+paleotest.register_syringe("hades_paleotest:smilodon",true)
 
-paleotest.register_syringe("paleotest:thylacoleo",true)
+paleotest.register_syringe("hades_paleotest:thylacoleo",true)
 
 --------------------
 -- Embryonic Sacs --
 --------------------
 
-paleotest.register_embryo_sac("paleotest:dunkleosteus",false)
+paleotest.register_embryo_sac("hades_paleotest:dunkleosteus",false)
 
-paleotest.register_embryo_sac("paleotest:mosasaurus",false)
+paleotest.register_embryo_sac("hades_paleotest:mosasaurus",false)
 
-paleotest.register_embryo_sac("paleotest:plesiosaurus",true)
+paleotest.register_embryo_sac("hades_paleotest:plesiosaurus",true)
 
 ------------------
 -- Pursuit Ball --
@@ -410,26 +410,26 @@ local ball_def = {
             return
         end
         local inv = clicker:get_inventory()
-        if inv:room_for_item("main", {name = "paleotest:pursuit_ball"}) then
-            clicker:get_inventory():add_item("main", "paleotest:pursuit_ball")
+        if inv:room_for_item("main", {name = "hades_paleotest:pursuit_ball"}) then
+            clicker:get_inventory():add_item("main", "hades_paleotest:pursuit_ball")
         else
             local pos = self.object:get_pos()
             pos.y = pos.y + 0.5
-            minetest.add_item(pos, {name = "paleotest:pursuit_ball"})
+            minetest.add_item(pos, {name = "hades_paleotest:pursuit_ball"})
         end
         self.object:remove()
     end
 }
 
-minetest.register_entity("paleotest:pursuit_ball_ent", ball_def)
+minetest.register_entity("hades_paleotest:pursuit_ball_ent", ball_def)
 
-minetest.register_craftitem("paleotest:pursuit_ball", {
+minetest.register_craftitem("hades_paleotest:pursuit_ball", {
     description = "Pursuit Ball",
     inventory_image = "paleotest_pursuit_ball_inv.png",
 	on_place = function(itemstack, _, pointed_thing)
         local pos = minetest.get_pointed_thing_position(pointed_thing, true)
         pos.y = pos.y + 0.5
-        minetest.add_entity(pos, "paleotest:pursuit_ball_ent")
+        minetest.add_entity(pos, "hades_paleotest:pursuit_ball_ent")
         if not creative then
             itemstack:take_item()
             return itemstack

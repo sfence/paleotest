@@ -8,112 +8,112 @@
 --------------
 
 minetest.register_craft({
-	output = "paleotest:feeder_carnivore",
+	output = "hades_paleotest:feeder_carnivore",
 	recipe = {
-		{"group:color_red", "default:glass", "group:color_red"},
-		{"", "bucket:bucket_empty", ""},
-		{"", "default:steelblock", ""},
+		{"dye:red", "hades_core:glass", "dye:red"},
+		{"", "pipeworks:storage_tank_0", ""},
+		{"", "hades_core:steelblock", ""},
 	}
 })
 
 minetest.register_craft({
-	output = "paleotest:feeder_piscivore",
+	output = "hades_paleotest:feeder_piscivore",
 	recipe = {
-		{"group:color_blue", "default:glass", "group:color_blue"},
-		{"", "bucket:bucket_empty", ""},
-		{"", "default:steelblock", ""},
+		{"dye:blue", "hades_core:glass", "dye:blue"},
+		{"", "pipeworks:storage_tank_0", ""},
+		{"", "hades_core:steelblock", ""},
 	}
 })
 
 minetest.register_craft({
-	output = "paleotest:feeder_herbivore",
+	output = "hades_paleotest:feeder_herbivore",
 	recipe = {
-		{"group:color_green", "default:glass", "group:color_green"},
-		{"", "bucket:bucket_empty", ""},
-		{"", "default:steelblock", ""},
+		{"dye:green", "hades_core:glass", "dye:green"},
+		{"", "pipeworks:storage_tank_0", ""},
+		{"", "hades_core:steelblock", ""},
 	}
 })
 
 minetest.register_craft({
-	output = "paleotest:field_guide",
+	output = "hades_paleotest:field_guide",
 	recipe = {
 		{"", "", ""},
 		{"group:fossil", "", ""},
-		{"default:book", "group:color_blue", ""},
+		{"hades_core:book", "dye:blue", ""},
 	}
 })
 
 minetest.register_craft({
-	output = "paleotest:whip",
+	output = "hades_paleotest:whip",
 	recipe = {
-		{"", "", "farming:cotton"},
-		{"", "default:stick", "farming:cotton"},
-		{"default:stick", "", "farming:cotton"},
+		{"", "", "hades_farming:cotton"},
+		{"", "hades_core:stick", "hades_farming:cotton"},
+		{"hades_core:stick", "", "hades_farming:cotton"},
 	}
 })
 
 
 minetest.register_craft({
-	output = "paleotest:pursuit_ball",
+	output = "hades_paleotest:pursuit_ball",
 	recipe = {
-		{"farming:string", "wool:pink", "farming:string"},
-		{"wool:pink", "farming:cotton", "wool:pink"},
-		{"farming:string", "wool:pink", "farming:string"},
+		{"hades_farming:string", "wool:pink", "hades_farming:string"},
+		{"wool:pink", "hades_farming:cotton", "wool:pink"},
+		{"hades_farming:string", "wool:pink", "hades_farming:string"},
 	}
 })
 
 minetest.register_craft({
-	output = "paleotest:scratching_post",
+	output = "hades_paleotest:scratching_post",
 	recipe = {
-		{"wool:white", "default:wood", "wool:white"},
-		{"wool:white", "default:wood", "wool:white"},
-		{"default:tree", "default:tree", "default:tree"},
+		{"wool:white", "hades_trees:wood", "wool:white"},
+		{"wool:white", "hades_trees:wood", "wool:white"},
+		{"hades_trees:tree", "hades_trees:tree", "hades_trees:tree"},
 	}
 })
 
 minetest.register_craft({
-    output = "paleotest:dna_cultivator",
+    output = "hades_paleotest:dna_cultivator",
     recipe = {
-        {"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
-        {"default:glass", "bucket:bucket_water", "default:glass"},
-        {"default:steel_ingot", "default:bronze_ingot", "default:steel_ingot"}
+        {"hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot"},
+        {"hades_core:glass", "pipeworks:storage_tank_0", "hades_core:glass"},
+        {"hades_core:steel_ingot", "hades_core:bronze_ingot", "hades_core:steel_ingot"}
     }
 })
 
 minetest.register_craft({
-    output = "paleotest:fossil_analyzer",
+    output = "hades_paleotest:fossil_analyzer",
     recipe = {
-        {"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},
-        {"default:steel_ingot", "default:copper_ingot", "default:steel_ingot"},
-        {"default:bronze_ingot", "default:bronze_ingot", "default:bronze_ingot"}
+        {"hades_core:steel_ingot", "hades_core:steel_ingot", "hades_core:steel_ingot"},
+        {"hades_core:steel_ingot", "hades_core:copper_ingot", "hades_core:steel_ingot"},
+        {"hades_core:bronze_ingot", "hades_core:bronze_ingot", "hades_core:bronze_ingot"}
     }
 })
 
 minetest.register_craft({
 	type = "cooking",
-	output = "paleotest:dinosaur_meat_raw",
-	recipe = "paleotest:dinosaur_meat_cooked",
+	output = "hades_paleotest:dinosaur_meat_raw",
+	recipe = "hades_paleotest:dinosaur_meat_cooked",
 	cooktime = 5
 })
 
 minetest.register_craft({
 	type = "cooking",
-	output = "paleotest:mammal_meat_raw",
-	recipe = "paleotest:mammal_meat_cooked",
+	output = "hades_paleotest:mammal_meat_raw",
+	recipe = "hades_paleotest:mammal_meat_cooked",
 	cooktime = 5
 })
 
 minetest.register_craft({
 	type = "cooking",
-	output = "paleotest:reptile_meat_raw",
-	recipe = "paleotest:reptile_meat_cooked",
+	output = "hades_paleotest:reptile_meat_raw",
+	recipe = "hades_paleotest:reptile_meat_cooked",
 	cooktime = 5
 })
 
 minetest.register_craft({
 	type = "cooking",
-	output = "paleotest:fish_meat_raw",
-	recipe = "paleotest:fish_meat_cooked",
+	output = "hades_paleotest:fish_meat_raw",
+	recipe = "hades_paleotest:fish_meat_cooked",
 	cooktime = 5
 })
 

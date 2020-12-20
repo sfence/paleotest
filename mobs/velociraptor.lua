@@ -62,7 +62,7 @@ local function velociraptor_logic(self)
             if prty < 12 and self.hunger < self.max_hunger then
                 if self.feeder_timer == 1 then
                     paleotest.hq_go_to_feeder(self, 12,
-                                              "paleotest:feeder_carnivore")
+                                              "hades_paleotest:feeder_carnivore")
                 end
             end
 
@@ -115,7 +115,7 @@ local function velociraptor_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:velociraptor", {
+minetest.register_entity("hades_paleotest:velociraptor", {
     -- Stats
     max_hp = 22,
     armor_groups = {fleshy = 100},
@@ -184,7 +184,7 @@ minetest.register_entity("paleotest:velociraptor", {
     predators = {},
     follow = paleotest.global_meat,
     drops = {
-        {name = "paleotest:dinosaur_meat_raw", chance = 1, min = 1, max = 3}
+        {name = "hades_paleotest:dinosaur_meat_raw", chance = 1, min = 1, max = 3}
     },
     timeout = 0,
     logic = velociraptor_logic,
@@ -195,9 +195,9 @@ minetest.register_entity("paleotest:velociraptor", {
         if paleotest.feed_tame(self, clicker, 5, self.child, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:velociraptor_guide",
+                                   "hades_paleotest:velociraptor_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_velociraptor_fg_female.png",
                 male_image = "paleotest_velociraptor_fg_male.png",
@@ -235,4 +235,4 @@ minetest.register_entity("paleotest:velociraptor", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:velociraptor", "c0926acc", "996433d9")
+mob_core.register_spawn_egg("hades_paleotest:velociraptor", "c0926acc", "996433d9")

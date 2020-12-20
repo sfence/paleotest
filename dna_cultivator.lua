@@ -85,7 +85,7 @@ end
 -- Node --
 ----------
 
-minetest.register_node("paleotest:dna_cultivator", {
+minetest.register_node("hades_paleotest:dna_cultivator", {
     description = "DNA Cultivator",
     tiles = {
         "paleotest_dna_cultivator_top.png",
@@ -98,7 +98,7 @@ minetest.register_node("paleotest:dna_cultivator", {
     groups = {cracky = 2, tubedevice = 1, tubedevice_receiver = 1},
     legacy_facedir_simple = true,
     is_ground_content = false,
-    sounds = default.node_sound_stone_defaults(),
+    sounds = hades_sounds.node_sound_stone_defaults(),
     drawtype = "node",
     can_dig = function(pos)
         local meta = minetest.get_meta(pos)
@@ -111,6 +111,11 @@ minetest.register_node("paleotest:dna_cultivator", {
         local inv = meta:get_inventory()
         local stack = meta:get_inventory():get_stack("input", 1)
         if not dna_cultivator.recipes[stack:get_name()] then return false end
+        if 1 then
+          return false;
+        end
+        -- do test for water in pipe here
+        -- add messecon effector action_on
         local output_item = dna_cultivator.recipes[stack:get_name()]
         local cultivating_time = meta:get_int("cultivating_time") or 0
         cultivating_time = cultivating_time + 1
@@ -197,7 +202,7 @@ minetest.register_node("paleotest:dna_cultivator", {
         local drops = {}
         default.get_inventory_drops(pos, "input", drops)
         default.get_inventory_drops(pos, "output", drops)
-        table.insert(drops, "paleotest:dna_cultivator")
+        table.insert(drops, "hades_paleotest:dna_cultivator")
         minetest.remove_node(pos)
         return drops
     end
@@ -209,74 +214,74 @@ minetest.register_node("paleotest:dna_cultivator", {
 
 -- Plants --
 
-dna_cultivator.register_recipe("paleotest:metasequoia_sapling_petrified",
-                               "paleotest:metasequoia_sapling")
+dna_cultivator.register_recipe("hades_paleotest:metasequoia_sapling_petrified",
+                               "hades_paleotest:metasequoia_sapling")
 
-dna_cultivator.register_recipe("paleotest:fossilized_cycad_seeds",
-                               "paleotest:seeds_cycad")
+dna_cultivator.register_recipe("hades_paleotest:fossilized_cycad_seeds",
+                               "hades_paleotest:seeds_cycad")
 
-dna_cultivator.register_recipe("paleotest:fossilized_horsetail_spores",
-                               "paleotest:seeds_horsetail")
+dna_cultivator.register_recipe("hades_paleotest:fossilized_horsetail_spores",
+                               "hades_paleotest:seeds_horsetail")
 
 -- Aquatic Reptiles --
 
-dna_cultivator.register_recipe("paleotest:dna_dunkleosteus",
-                               "paleotest:sac_dunkleosteus")
+dna_cultivator.register_recipe("hades_paleotest:dna_dunkleosteus",
+                               "hades_paleotest:sac_dunkleosteus")
 
-dna_cultivator.register_recipe("paleotest:dna_plesiosaurus",
-                               "paleotest:sac_plesiosaurus")
+dna_cultivator.register_recipe("hades_paleotest:dna_plesiosaurus",
+                               "hades_paleotest:sac_plesiosaurus")
 
-dna_cultivator.register_recipe("paleotest:dna_mosasaurus",
-                               "paleotest:sac_mosasaurus")
+dna_cultivator.register_recipe("hades_paleotest:dna_mosasaurus",
+                               "hades_paleotest:sac_mosasaurus")
 
 -- Mammals --
 
-dna_cultivator.register_recipe("paleotest:dna_dire_wolf",
-                               "paleotest:syringe_dire_wolf")
+dna_cultivator.register_recipe("hades_paleotest:dna_dire_wolf",
+                               "hades_paleotest:syringe_dire_wolf")
 
-dna_cultivator.register_recipe("paleotest:dna_elasmotherium",
-                               "paleotest:syringe_elasmotherium")
+dna_cultivator.register_recipe("hades_paleotest:dna_elasmotherium",
+                               "hades_paleotest:syringe_elasmotherium")
 
-dna_cultivator.register_recipe("paleotest:dna_mammoth",
-                               "paleotest:syringe_mammoth")
+dna_cultivator.register_recipe("hades_paleotest:dna_mammoth",
+                               "hades_paleotest:syringe_mammoth")
 
-dna_cultivator.register_recipe("paleotest:dna_procoptodon",
-                               "paleotest:syringe_procoptodon")
+dna_cultivator.register_recipe("hades_paleotest:dna_procoptodon",
+                               "hades_paleotest:syringe_procoptodon")
 
-dna_cultivator.register_recipe("paleotest:dna_smilodon",
-                               "paleotest:syringe_smilodon")
+dna_cultivator.register_recipe("hades_paleotest:dna_smilodon",
+                               "hades_paleotest:syringe_smilodon")
 
-dna_cultivator.register_recipe("paleotest:dna_thylacoleo",
-                               "paleotest:syringe_thylacoleo")
+dna_cultivator.register_recipe("hades_paleotest:dna_thylacoleo",
+                               "hades_paleotest:syringe_thylacoleo")
 
 -- Dinosaurs and Terrestrial Reptiles --
 
-dna_cultivator.register_recipe("paleotest:dna_brachiosaurus",
-							   "paleotest:egg_brachiosaurus")
+dna_cultivator.register_recipe("hades_paleotest:dna_brachiosaurus",
+							   "hades_paleotest:egg_brachiosaurus")
 							   
-dna_cultivator.register_recipe("paleotest:dna_carnotaurus",
-                               "paleotest:egg_carnotaurus")
+dna_cultivator.register_recipe("hades_paleotest:dna_carnotaurus",
+                               "hades_paleotest:egg_carnotaurus")
 
-dna_cultivator.register_recipe("paleotest:dna_pteranodon",
-                               "paleotest:egg_pteranodon")
+dna_cultivator.register_recipe("hades_paleotest:dna_pteranodon",
+                               "hades_paleotest:egg_pteranodon")
 
-dna_cultivator.register_recipe("paleotest:dna_quetzalcoatlus",
-                               "paleotest:egg_quetzalcoatlus")                   
+dna_cultivator.register_recipe("hades_paleotest:dna_quetzalcoatlus",
+                               "hades_paleotest:egg_quetzalcoatlus")                   
 
-dna_cultivator.register_recipe("paleotest:dna_sarcosuchus",
-                               "paleotest:egg_sarcosuchus")
+dna_cultivator.register_recipe("hades_paleotest:dna_sarcosuchus",
+                               "hades_paleotest:egg_sarcosuchus")
 
-dna_cultivator.register_recipe("paleotest:dna_spinosaurus",
-                               "paleotest:egg_spinosaurus")
+dna_cultivator.register_recipe("hades_paleotest:dna_spinosaurus",
+                               "hades_paleotest:egg_spinosaurus")
 
-dna_cultivator.register_recipe("paleotest:dna_stegosaurus",
-                               "paleotest:egg_stegosaurus")
+dna_cultivator.register_recipe("hades_paleotest:dna_stegosaurus",
+                               "hades_paleotest:egg_stegosaurus")
 
-dna_cultivator.register_recipe("paleotest:dna_triceratops",
-                               "paleotest:egg_triceratops")
+dna_cultivator.register_recipe("hades_paleotest:dna_triceratops",
+                               "hades_paleotest:egg_triceratops")
 
-dna_cultivator.register_recipe("paleotest:dna_tyrannosaurus",
-                               "paleotest:egg_tyrannosaurus")
+dna_cultivator.register_recipe("hades_paleotest:dna_tyrannosaurus",
+                               "hades_paleotest:egg_tyrannosaurus")
 
-dna_cultivator.register_recipe("paleotest:dna_velociraptor",
-                               "paleotest:egg_velociraptor")
+dna_cultivator.register_recipe("hades_paleotest:dna_velociraptor",
+                               "hades_paleotest:egg_velociraptor")

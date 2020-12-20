@@ -270,7 +270,7 @@ function paleotest.can_find_ball(self)
 		if object:get_luaentity() then
 			local ent = object:get_luaentity()
 			if ent.name
-			and ent.name == "paleotest:pursuit_ball_ent" then
+			and ent.name == "hades_paleotest:pursuit_ball_ent" then
 				return true
 			end
 		end
@@ -282,7 +282,7 @@ function paleotest.can_find_post(self)
 	local pos = self.object:get_pos()
 	local pos1 = vector.new(pos.x - self.view_range, pos.y - self.view_range, pos.z - self.view_range)
 	local pos2 = vector.new(pos.x + self.view_range, pos.y + self.view_range, pos.z + self.view_range)
-	local nodes = minetest.find_nodes_in_area(pos1, pos2, "paleotest:scratching_post")
+	local nodes = minetest.find_nodes_in_area(pos1, pos2, "hades_paleotest:scratching_post")
 	if #nodes >= 1 then return true end
 	return false
 end
@@ -405,7 +405,7 @@ function paleotest.breed(self, live) -- Breeding
 					if live then
 						mob_core.spawn_child(pos,self.name)
 					else
-						minetest.add_entity(pos,"paleotest:egg_"..name.."_ent")
+						minetest.add_entity(pos,"hades_paleotest:egg_"..name.."_ent")
 					end
 					paleotest.particle_spawner(self.object:get_pos(), "heart.png", "float")
 				end)

@@ -69,7 +69,7 @@ local function carnotaurus_logic(self)
                 if self.hunger < self.max_hunger and self.feeder_timer == 1 then
                     if math.random(1, 2) == 1 then
                         paleotest.hq_go_to_feeder(self, 14,
-                                                  "paleotest:feeder_carnivore")
+                                                  "hades_paleotest:feeder_carnivore")
                     else
                         paleotest.hq_eat_items(self, 14)
                     end
@@ -140,7 +140,7 @@ local function carnotaurus_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:carnotaurus", {
+minetest.register_entity("hades_paleotest:carnotaurus", {
     -- Stats
     max_hp = 46,
     armor_groups = {fleshy = 80},
@@ -209,7 +209,7 @@ minetest.register_entity("paleotest:carnotaurus", {
     predators = {},
     follow = paleotest.global_meat,
     drops = {
-        {name = "paleotest:dinosaur_meat_raw", chance = 1, min = 2, max = 4}
+        {name = "hades_paleotest:dinosaur_meat_raw", chance = 1, min = 2, max = 4}
     },
     timeout = 0,
     logic = carnotaurus_logic,
@@ -221,9 +221,9 @@ minetest.register_entity("paleotest:carnotaurus", {
             return
         end
         paleotest.imprint_tame(self, clicker)
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:carnotaurus_guide",
+                                   "hades_paleotest:carnotaurus_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_carnotaurus_fg_female.png",
                 male_image = "paleotest_carnotaurus_fg_male.png",
@@ -249,4 +249,4 @@ minetest.register_entity("paleotest:carnotaurus", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:carnotaurus", "4c5335cc", "353b23d9")
+mob_core.register_spawn_egg("hades_paleotest:carnotaurus", "4c5335cc", "353b23d9")

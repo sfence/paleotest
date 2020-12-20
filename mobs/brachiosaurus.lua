@@ -62,7 +62,7 @@ local function brachiosaurus_logic(self)
             if prty < 14 and self.hunger < self.max_hunger then
                 if self.feeder_timer == 1 then
                     paleotest.hq_go_to_feeder(self, 14,
-                                              "paleotest:feeder_herbivore")
+                                              "hades_paleotest:feeder_herbivore")
                 end
             end
 
@@ -125,7 +125,7 @@ local function brachiosaurus_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:brachiosaurus", {
+minetest.register_entity("hades_paleotest:brachiosaurus", {
     -- Stats
     max_hp = 200,
     armor_groups = {fleshy = 70},
@@ -198,7 +198,7 @@ minetest.register_entity("paleotest:brachiosaurus", {
     rivals = {},
     follow = paleotest.global_leaves,
     drops = {
-        {name = "paleotest:dinosaur_meat_raw", chance = 1, min = 4, max = 6}
+        {name = "hades_paleotest:dinosaur_meat_raw", chance = 1, min = 4, max = 6}
     },
     timeout = 0,
     logic = brachiosaurus_logic,
@@ -209,9 +209,9 @@ minetest.register_entity("paleotest:brachiosaurus", {
         if paleotest.feed_tame(self, clicker, 25, self.child, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:brachiosaurus_guide",
+                                   "hades_paleotest:brachiosaurus_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_brachiosaurus_fg_female.png",
                 male_image = "paleotest_brachiosaurus_fg_male.png",
@@ -237,4 +237,4 @@ minetest.register_entity("paleotest:brachiosaurus", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:brachiosaurus", "473f33cc", "393225d9")
+mob_core.register_spawn_egg("hades_paleotest:brachiosaurus", "473f33cc", "393225d9")

@@ -44,7 +44,7 @@ local function dunkleosteus_logic(self)
         if prty < 8 and self.hunger < self.max_hunger then
             if self.feeder_timer == 1 then
                 paleotest.hq_aqua_go_to_feeder(self, 8,
-                                               "paleotest:feeder_piscivore")
+                                               "hades_paleotest:feeder_piscivore")
             end
         end
 
@@ -67,7 +67,7 @@ local function dunkleosteus_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:dunkleosteus", {
+minetest.register_entity("hades_paleotest:dunkleosteus", {
     -- Stats
     max_hp = 45,
     armor_groups = {fleshy = 80},
@@ -109,7 +109,7 @@ minetest.register_entity("paleotest:dunkleosteus", {
     defend_owner = false,
     targets = {},
     follow = paleotest.global_fish,
-    drops = {{name = "paleotest:fish_meat_raw", chance = 1, min = 1, max = 3}},
+    drops = {{name = "hades_paleotest:fish_meat_raw", chance = 1, min = 1, max = 3}},
     timeout = 0,
     logic = dunkleosteus_logic,
     get_staticdata = mobkit.statfunc,
@@ -119,9 +119,9 @@ minetest.register_entity("paleotest:dunkleosteus", {
         if paleotest.feed_tame(self, clicker, 10, false, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:dunkleosteus_guide",
+                                   "hades_paleotest:dunkleosteus_guide",
                                    paleotest.register_fg_entry(self, {
                 image = "paleotest_dunkleosteus_fg.png",
                 diet = "Piscivore",
@@ -138,4 +138,4 @@ minetest.register_entity("paleotest:dunkleosteus", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:dunkleosteus", "495863cc", "262d34d9")
+mob_core.register_spawn_egg("hades_paleotest:dunkleosteus", "495863cc", "262d34d9")

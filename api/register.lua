@@ -78,8 +78,8 @@ minetest.register_on_mods_loaded(function()
             if not old_click then old_click = function() end end
             local on_rightclick = function(self, clicker)
                 local item = clicker:get_wielded_item():get_name()
-                if not self.name:match("^paleotest:") then
-                    if item == "paleotest:field_guide" then
+                if not self.name:match("^hades_paleotest:") then
+                    if item == "hades_paleotest:field_guide" then
                         paleotest.fg_pregnant_progress(self, clicker)
                         return
                     end
@@ -179,7 +179,7 @@ function paleotest.fg_egg_progress(self, clicker)
         return table.concat(formspec, "")
     end
     minetest.show_formspec(clicker:get_player_name(),
-                           "paleotest:fg_egg_progress", form(self))
+                           "hades_paleotest:fg_egg_progress", form(self))
 end
 
 -----------------------
@@ -204,7 +204,7 @@ function paleotest.fg_pregnant_progress(self, clicker)
         return table.concat(formspec, "")
     end
     minetest.show_formspec(clicker:get_player_name(),
-                           "paleotest:fg_pregnant_progress", form(self))
+                           "hades_paleotest:fg_pregnant_progress", form(self))
 end
 
 -------------------------
@@ -214,7 +214,7 @@ end
 function paleotest.register_embryo_sac(mob, imprint)
     local desc = mob_core.get_name_proper(mob)
     local mob_name = mob:split(":")[2]
-    minetest.register_craftitem("paleotest:sac_" .. mob_name, {
+    minetest.register_craftitem("hades_paleotest:sac_" .. mob_name, {
         description = desc .. " Embryonic Sac",
         inventory_image = "paleotest_embryo_sac.png",
         wield_image = "paleotest_embryo_sac.png",
@@ -262,7 +262,7 @@ end
 function paleotest.register_syringe(mob, imprint)
     local desc = mob_core.get_name_proper(mob)
     local mob_name = mob:split(":")[2]
-    minetest.register_craftitem("paleotest:syringe_" .. mob_name, {
+    minetest.register_craftitem("hades_paleotest:syringe_" .. mob_name, {
         description = desc .. " Syringe",
         inventory_image = "paleotest_syringe.png",
         groups = {paleo_syringe = 1},
@@ -333,25 +333,25 @@ function paleotest.register_egg(mob, scale, imprint)
 
     local function pickup_egg(self, player)
         local inv = player:get_inventory()
-        if inv:room_for_item("main", {name = "paleotest:egg_" .. mob_name}) then
+        if inv:room_for_item("main", {name = "hades_paleotest:egg_" .. mob_name}) then
             player:get_inventory()
-                :add_item("main", "paleotest:egg_" .. mob_name)
+                :add_item("main", "hades_paleotest:egg_" .. mob_name)
         else
             local pos = self.object:get_pos()
             pos.y = pos.y + 0.5
-            minetest.add_item(pos, {name = "paleotest:egg_" .. mob_name})
+            minetest.add_item(pos, {name = "hades_paleotest:egg_" .. mob_name})
         end
         self.object:remove()
     end
 
-    minetest.register_craftitem("paleotest:egg_" .. mob_name, {
+    minetest.register_craftitem("hades_paleotest:egg_" .. mob_name, {
         description = SF(mob) .. " Egg",
         groups = {egg = 1},
         inventory_image = "paleotest_egg_" .. mob_name .. ".png",
         on_place = function(itemstack, _, pointed_thing)
             local pos = minetest.get_pointed_thing_position(pointed_thing, true)
             pos.y = pos.y + 0.5
-            minetest.add_entity(pos, "paleotest:egg_" .. mob_name .. "_ent")
+            minetest.add_entity(pos, "hades_paleotest:egg_" .. mob_name .. "_ent")
             if not creative then
                 itemstack:take_item()
                 return itemstack
@@ -359,7 +359,7 @@ function paleotest.register_egg(mob, scale, imprint)
         end
     })
 
-    minetest.register_entity("paleotest:egg_" .. mob_name .. "_ent", {
+    minetest.register_entity("hades_paleotest:egg_" .. mob_name .. "_ent", {
         -- Stats
         max_hp = 10,
         armor_groups = {immortal = 1},
@@ -418,7 +418,7 @@ function paleotest.register_egg(mob, scale, imprint)
             end
         end,
         on_rightclick = function(self, clicker)
-            if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+            if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
                 paleotest.fg_egg_progress(self, clicker)
             else
                 pickup_egg(self, clicker)

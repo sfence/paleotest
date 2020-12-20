@@ -60,7 +60,7 @@ local function procoptodon_logic(self)
 
             if prty < 14 and self.hunger < self.max_hunger then
                 if self.feeder_timer == 1 then
-                    paleotest.hq_go_to_feeder(self, 14, "paleotest:feeder_herbivore")
+                    paleotest.hq_go_to_feeder(self, 14, "hades_paleotest:feeder_herbivore")
                 end
             end
     
@@ -124,7 +124,7 @@ local function procoptodon_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:procoptodon", {
+minetest.register_entity("hades_paleotest:procoptodon", {
     -- Stats
     max_hp = 38,
     armor_groups = {fleshy = 100},
@@ -191,7 +191,7 @@ minetest.register_entity("paleotest:procoptodon", {
     targets = {},
     predators = {},
     follow = paleotest.global_flora,
-    drops = {{name = "paleotest:mammal_meat_raw", chance = 1, min = 1, max = 3}},
+    drops = {{name = "hades_paleotest:mammal_meat_raw", chance = 1, min = 1, max = 3}},
     timeout = 0,
     logic = procoptodon_logic,
     get_staticdata = mobkit.statfunc,
@@ -201,15 +201,15 @@ minetest.register_entity("paleotest:procoptodon", {
         if paleotest.feed_tame(self, clicker, 10, self.child, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             if self._pregnant and clicker:get_player_control().sneak then
                 minetest.show_formspec(clicker:get_player_name(),
-                                       "paleotest:pregnant_guide",
+                                       "hades_paleotest:pregnant_guide",
                                        paleotest.pregnant_progress_page(self))
                 return
             end
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:procoptodon_guide",
+                                   "hades_paleotest:procoptodon_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_procoptodon_fg_female.png",
                 male_image = "paleotest_procoptodon_fg_male.png",
@@ -235,4 +235,4 @@ minetest.register_entity("paleotest:procoptodon", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:procoptodon", "6e512dcc", "2f1702d9")
+mob_core.register_spawn_egg("hades_paleotest:procoptodon", "6e512dcc", "2f1702d9")

@@ -73,10 +73,10 @@ local function sarcosuchus_logic(self)
             if self.hunger < self.max_hunger and self.feeder_timer == 1 then
                 if self.is_in_deep then
                     paleotest.hq_aqua_go_to_feeder(self, 12,
-                                                   "paleotest:feeder_piscivore")
+                                                   "hades_paleotest:feeder_piscivore")
                 else
                     paleotest.hq_go_to_feeder(self, 12,
-                                              "paleotest:feeder_piscivore")
+                                              "hades_paleotest:feeder_piscivore")
                 end
             end
         end
@@ -159,7 +159,7 @@ local function sarcosuchus_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:sarcosuchus", {
+minetest.register_entity("hades_paleotest:sarcosuchus", {
     -- Stats
     max_hp = 70,
     armor_groups = {fleshy = 85},
@@ -234,7 +234,7 @@ minetest.register_entity("paleotest:sarcosuchus", {
     rivals = {},
     follow = paleotest.global_meat,
     drops = {
-        {name = "paleotest:reptile_meat_raw", chance = 1, min = 2, max = 4}
+        {name = "hades_paleotest:reptile_meat_raw", chance = 1, min = 2, max = 4}
     },
     timeout = 0,
     logic = sarcosuchus_logic,
@@ -250,9 +250,9 @@ minetest.register_entity("paleotest:sarcosuchus", {
         if paleotest.feed_tame(self, clicker, 25, false, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:sarcosuchus_guide",
+                                   "hades_paleotest:sarcosuchus_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_sarcosuchus_fg_female.png",
                 male_image = "paleotest_sarcosuchus_fg_male.png",
@@ -280,4 +280,4 @@ minetest.register_entity("paleotest:sarcosuchus", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:sarcosuchus", "444b28cc", "383d20d9")
+mob_core.register_spawn_egg("hades_paleotest:sarcosuchus", "444b28cc", "383d20d9")

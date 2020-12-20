@@ -73,10 +73,10 @@ local function spinosaurus_logic(self)
             if self.hunger < self.max_hunger and self.feeder_timer == 1 then
                 if self.is_in_deep then
                     paleotest.hq_aqua_go_to_feeder(self, 12,
-                                                   "paleotest:feeder_piscivore")
+                                                   "hades_paleotest:feeder_piscivore")
                 else
                     paleotest.hq_go_to_feeder(self, 12,
-                                              "paleotest:feeder_piscivore")
+                                              "hades_paleotest:feeder_piscivore")
                 end
             end
         end
@@ -159,7 +159,7 @@ local function spinosaurus_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:spinosaurus", {
+minetest.register_entity("hades_paleotest:spinosaurus", {
     -- Stats
     max_hp = 86,
     armor_groups = {fleshy = 90},
@@ -233,7 +233,7 @@ minetest.register_entity("paleotest:spinosaurus", {
     rivals = {},
     follow = paleotest.global_fish,
     drops = {
-        {name = "paleotest:dinosaur_meat_raw", chance = 1, min = 1, max = 3}
+        {name = "hades_paleotest:dinosaur_meat_raw", chance = 1, min = 1, max = 3}
     },
     timeout = 0,
     logic = spinosaurus_logic,
@@ -247,9 +247,9 @@ minetest.register_entity("paleotest:spinosaurus", {
         if paleotest.feed_tame(self, clicker, 25, false, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:spinosaurus_guide",
+                                   "hades_paleotest:spinosaurus_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_spinosaurus_fg_female.png",
                 male_image = "paleotest_spinosaurus_fg_male.png",
@@ -277,4 +277,4 @@ minetest.register_entity("paleotest:spinosaurus", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:spinosaurus", "565b40cc", "44492ed9")
+mob_core.register_spawn_egg("hades_paleotest:spinosaurus", "565b40cc", "44492ed9")

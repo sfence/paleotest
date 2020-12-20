@@ -63,7 +63,7 @@ local function elasmotherium_logic(self)
             if self.hunger < self.max_hunger and self.feeder_timer == 1 then
                 if math.random(1, 2) == 1 then
                     paleotest.hq_go_to_feeder(self, 14,
-                                              "paleotest:feeder_herbivore")
+                                              "hades_paleotest:feeder_herbivore")
                 else
                     paleotest.hq_eat_items(self, 14)
                 end
@@ -120,7 +120,7 @@ local function elasmotherium_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:elasmotherium", {
+minetest.register_entity("hades_paleotest:elasmotherium", {
     -- Stats
     max_hp = 58,
     armor_groups = {fleshy = 80},
@@ -188,7 +188,7 @@ minetest.register_entity("paleotest:elasmotherium", {
     predators = {},
     graze = paleotest.global_flora,
     follow = paleotest.global_flora,
-    drops = {{name = "paleotest:mammal_meat_raw", chance = 1, min = 2, max = 4}},
+    drops = {{name = "hades_paleotest:mammal_meat_raw", chance = 1, min = 2, max = 4}},
     timeout = 0,
     logic = elasmotherium_logic,
     get_staticdata = mobkit.statfunc,
@@ -198,15 +198,15 @@ minetest.register_entity("paleotest:elasmotherium", {
         if paleotest.feed_tame(self, clicker, 15, self.child, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             if self._pregnant and clicker:get_player_control().sneak then
                 minetest.show_formspec(clicker:get_player_name(),
-                                       "paleotest:pregnant_guide",
+                                       "hades_paleotest:pregnant_guide",
                                        paleotest.pregnant_progress_page(self))
                 return
             end
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:elasmotherium_guide",
+                                   "hades_paleotest:elasmotherium_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_elasmotherium_fg_female.png",
                 male_image = "paleotest_elasmotherium_fg_male.png",
@@ -232,4 +232,4 @@ minetest.register_entity("paleotest:elasmotherium", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:elasmotherium", "321f15cc", "27140dd9")
+mob_core.register_spawn_egg("hades_paleotest:elasmotherium", "321f15cc", "27140dd9")

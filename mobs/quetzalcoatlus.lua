@@ -7,7 +7,7 @@ local function find_feeder(self)
     local pos1 = {x = pos.x + 32, y = pos.y + 32, z = pos.z + 32}
     local pos2 = {x = pos.x - 32, y = pos.y - 32, z = pos.z - 32}
     local area = minetest.find_nodes_in_area(pos1, pos2,
-                                             "paleotest:carnivore_feeder")
+                                             "hades_paleotest:carnivore_feeder")
     if #area < 1 then return nil end
     return area[1]
 end
@@ -92,7 +92,7 @@ local function quetzalcoatlus_logic(self)
                         self.finding_feeder =
                             mobkit.remember(self, "finding_feeder", false)
                         paleotest.hq_go_to_feeder(self, 4,
-                                                  "paleotest:feeder_carnivore")
+                                                  "hades_paleotest:feeder_carnivore")
                     else
                         paleotest.hq_eat_items(self, 4)
                     end
@@ -151,7 +151,7 @@ local function quetzalcoatlus_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:quetzalcoatlus", {
+minetest.register_entity("hades_paleotest:quetzalcoatlus", {
     -- Stats
     max_hp = 52,
     armor_groups = {fleshy = 100},
@@ -227,7 +227,7 @@ minetest.register_entity("paleotest:quetzalcoatlus", {
     targets = {},
     follow = paleotest.global_meat,
     drops = {
-        {name = "paleotest:reptile_meat_raw", chance = 1, min = 2, max = 4}
+        {name = "hades_paleotest:reptile_meat_raw", chance = 1, min = 2, max = 4}
     },
     timeout = 0,
     logic = quetzalcoatlus_logic,
@@ -242,9 +242,9 @@ minetest.register_entity("paleotest:quetzalcoatlus", {
         if paleotest.feed_tame(self, clicker, 20, self.child, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:quetzalcoatlus_guide",
+                                   "hades_paleotest:quetzalcoatlus_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_quetzalcoatlus_fg_female.png",
                 male_image = "paleotest_quetzalcoatlus_fg_male.png",
@@ -252,7 +252,7 @@ minetest.register_entity("paleotest:quetzalcoatlus", {
                 temper = "Neutral"
             }))
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:whip" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:whip" then
             mob_core.mount(self, clicker)
         end
         if self.mood > 50 then paleotest.set_order(self, clicker) end
@@ -277,4 +277,4 @@ minetest.register_entity("paleotest:quetzalcoatlus", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:quetzalcoatlus", "aca483cc", "231d14d9")
+mob_core.register_spawn_egg("hades_paleotest:quetzalcoatlus", "aca483cc", "231d14d9")

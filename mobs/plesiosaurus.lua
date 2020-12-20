@@ -48,7 +48,7 @@ local function plesiosaurus_logic(self)
         if prty < 6 and self.hunger < self.max_hunger then
             if self.feeder_timer == 1 then
                 paleotest.hq_aqua_go_to_feeder(self, 6,
-                                               "paleotest:feeder_piscivore")
+                                               "hades_paleotest:feeder_piscivore")
             end
         end
 
@@ -70,7 +70,7 @@ local function plesiosaurus_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:plesiosaurus", {
+minetest.register_entity("hades_paleotest:plesiosaurus", {
     -- Stats
     max_hp = 30,
     armor_groups = {fleshy = 100},
@@ -116,7 +116,7 @@ minetest.register_entity("paleotest:plesiosaurus", {
     targets = {},
     follow = paleotest.global_fish,
     drops = {
-        {name = "paleotest:reptile_meat_raw", chance = 1, min = 1, max = 2}
+        {name = "hades_paleotest:reptile_meat_raw", chance = 1, min = 1, max = 2}
     },
     timeout = 0,
     logic = plesiosaurus_logic,
@@ -127,9 +127,9 @@ minetest.register_entity("paleotest:plesiosaurus", {
         if paleotest.feed_tame(self, clicker, 10, false, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:plesiosaurus_guide",
+                                   "hades_paleotest:plesiosaurus_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_plesiosaurus_fg_female.png",
                 male_image = "paleotest_plesiosaurus_fg_male.png",
@@ -151,4 +151,4 @@ minetest.register_entity("paleotest:plesiosaurus", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:plesiosaurus", "533b29cc", "4d3627d9")
+mob_core.register_spawn_egg("hades_paleotest:plesiosaurus", "533b29cc", "4d3627d9")

@@ -7,7 +7,7 @@ local function find_feeder(self)
     local pos1 = {x = pos.x + 32, y = pos.y + 32, z = pos.z + 32}
     local pos2 = {x = pos.x - 32, y = pos.y - 32, z = pos.z - 32}
     local area = minetest.find_nodes_in_area(pos1, pos2,
-                                             "paleotest:piscivore_feeder")
+                                             "hades_paleotest:piscivore_feeder")
     if #area < 1 then return nil end
     return area[1]
 end
@@ -49,7 +49,7 @@ local function pteranodon_logic(self)
                         self.finding_feeder =
                             mobkit.remember(self, "finding_feeder", false)
                         paleotest.hq_go_to_feeder(self, 6,
-                                                  "paleotest:feeder_piscivore")
+                                                  "hades_paleotest:feeder_piscivore")
                     else
                         paleotest.hq_eat_items(self, 6)
                     end
@@ -105,7 +105,7 @@ local function pteranodon_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:pteranodon", {
+minetest.register_entity("hades_paleotest:pteranodon", {
     -- Stats
     max_hp = 16,
     armor_groups = {fleshy = 100},
@@ -155,7 +155,7 @@ minetest.register_entity("paleotest:pteranodon", {
     targets = {},
     follow = paleotest.global_fish,
     drops = {
-        {name = "paleotest:reptile_meat_raw", chance = 1, min = 1, max = 1}
+        {name = "hades_paleotest:reptile_meat_raw", chance = 1, min = 1, max = 1}
     },
     timeout = 0,
     logic = pteranodon_logic,
@@ -209,9 +209,9 @@ minetest.register_entity("paleotest:pteranodon", {
             return
         end
         mob_core.protect(self, clicker, true)
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:pteranodon_guide",
+                                   "hades_paleotest:pteranodon_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_pteranodon_fg_female.png",
                 male_image = "paleotest_pteranodon_fg_male.png",
@@ -232,4 +232,4 @@ minetest.register_entity("paleotest:pteranodon", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:pteranodon", "90431bcc", "16120dd9")
+mob_core.register_spawn_egg("hades_paleotest:pteranodon", "90431bcc", "16120dd9")

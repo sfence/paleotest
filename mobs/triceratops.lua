@@ -73,7 +73,7 @@ local function triceratops_logic(self)
             if prty < 14 and self.hunger < self.max_hunger then
                 if self.feeder_timer == 1 then
                     paleotest.hq_go_to_feeder(self, 14,
-                                              "paleotest:feeder_herbivore")
+                                              "hades_paleotest:feeder_herbivore")
                 end
             end
 
@@ -132,7 +132,7 @@ local function triceratops_logic(self)
     end
 end
 
-minetest.register_entity("paleotest:triceratops", {
+minetest.register_entity("hades_paleotest:triceratops", {
     -- Stats
     max_hp = 64,
     armor_groups = {fleshy = 80},
@@ -208,7 +208,7 @@ minetest.register_entity("paleotest:triceratops", {
     rivals = {},
     follow = paleotest.global_flora,
     drops = {
-        {name = "paleotest:dinosaur_meat_raw", chance = 1, min = 2, max = 4}
+        {name = "hades_paleotest:dinosaur_meat_raw", chance = 1, min = 2, max = 4}
     },
     timeout = 0,
     logic = triceratops_logic,
@@ -219,9 +219,9 @@ minetest.register_entity("paleotest:triceratops", {
         if paleotest.feed_tame(self, clicker, 15, self.child, false) then
             return
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:field_guide" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:field_guide" then
             minetest.show_formspec(clicker:get_player_name(),
-                                   "paleotest:triceratops_guide",
+                                   "hades_paleotest:triceratops_guide",
                                    paleotest.register_fg_entry(self, {
                 female_image = "paleotest_triceratops_fg_female.png",
                 male_image = "paleotest_triceratops_fg_male.png",
@@ -229,7 +229,7 @@ minetest.register_entity("paleotest:triceratops", {
                 temper = "Defensive"
             }))
         end
-        if clicker:get_wielded_item():get_name() == "paleotest:whip" then
+        if clicker:get_wielded_item():get_name() == "hades_paleotest:whip" then
             mob_core.mount(self, clicker)
         end
         if self.mood > 50 then paleotest.set_order(self, clicker) end
@@ -256,4 +256,4 @@ minetest.register_entity("paleotest:triceratops", {
     end
 })
 
-mob_core.register_spawn_egg("paleotest:triceratops", "473f33cc", "393225d9")
+mob_core.register_spawn_egg("hades_paleotest:triceratops", "473f33cc", "393225d9")
