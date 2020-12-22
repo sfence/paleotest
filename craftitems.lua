@@ -266,6 +266,24 @@ minetest.register_craftitem("hades_paleotest:dna_part_velociraptor", { -- Veloci
 	inventory_image = "paleotest_dna_part.png",
 })
 
+if minetest.get_modpath("hades_animals") then
+  for key, name in pairs(paleotest.hades_animals) do
+    minetest.register_craftitem("hades_paleotest:dna_part_"..key, {
+      description = name.." DNA Part",
+      inventory_image = "paleotest_dna_part.png",
+    })
+  end
+end
+
+if minetest.get_modpath("hades_villages") then
+  for key, name in pairs(paleotest.hades_villages) do
+    minetest.register_craftitem("hades_paleotest:dna_part_"..key, {
+      description = name.." DNA Part",
+      inventory_image = "paleotest_dna_part.png",
+    })
+  end
+end
+
 ---------
 -- DNA --
 ---------
@@ -365,6 +383,24 @@ minetest.register_craftitem("hades_paleotest:dna_velociraptor", { -- Velocirapto
 	inventory_image = "paleotest_dna.png",
 })
 
+if minetest.get_modpath("hades_animals") then
+  for key, name in pairs(paleotest.hades_animals) do
+    minetest.register_craftitem("hades_paleotest:dna_"..key, {
+      description = name.." DNA",
+      inventory_image = "paleotest_dna.png",
+    })
+  end
+end
+
+if minetest.get_modpath("hades_villages") then
+  for key, name in pairs(paleotest.hades_villages) do
+    minetest.register_craftitem("hades_paleotest:dna_"..key, {
+      description = name.." DNA",
+      inventory_image = "paleotest_dna.png",
+    })
+  end
+end
+
 ----------
 -- Eggs --
 ----------
@@ -420,10 +456,18 @@ paleotest.register_embryo_sac("hades_paleotest:plesiosaurus",true)
 ------------
 
 if minetest.get_modpath("hades_animals") then
-  
-  for key, animal in pairs(paleotest.hades_animals) do
+  for key, name in pairs(paleotest.hades_animals) do
     minetest.register_craftitem("hades_paleotest:embryo_"..key, {
-      description = animal.." embryo",
+      description = name.." embryo",
+      inventory_image = "paleotest_embryo.png",
+    })
+  end
+end
+
+if minetest.get_modpath("hades_villages") then
+  for key, name in pairs(paleotest.hades_villages) do
+    minetest.register_craftitem("hades_paleotest:embryo_"..key, {
+      description = name.." embryo",
       inventory_image = "paleotest_embryo.png",
     })
   end

@@ -38,13 +38,19 @@ local plant_recent_output = {"hades_core:tuff", "hades_core;fertile_sand"};
 local waste_plant_recent = {"hades_core:tuff", "hades_core;fertile_sand"};
 
 if (minetest.get_modpath("hades_farming")~=nil) then
-  for seed, name in pairs(paleotest.hades_seeds) do
-    table.insert(plant_recent_output, "hades_paleotest:fossilized_"..seed.."_seeds");
+  for key, name in pairs(paleotest.hades_seeds) do
+    table.insert(plant_recent_output, "hades_paleotest:fossilized_"..key.."_seeds");
   end
 end
 
 if (minetest.get_modpath("hades_animals")~=nil) then
-  for key, animal in pairs(paleotest.hades_animals) do
+  for key, name in pairs(paleotest.hades_animals) do
+    table.insert(bone_recent_output, "hades_paleotest:dna_part_"..key);
+  end
+end
+
+if (minetest.get_modpath("hades_villages")~=nil) then
+  for key, name in pairs(paleotest.hades_villages) do
     table.insert(bone_recent_output, "hades_paleotest:dna_part_"..key);
   end
 end

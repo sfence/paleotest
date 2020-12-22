@@ -172,18 +172,27 @@ if 1 then
 end
 
 if minetest.get_modpath("hades_animals")~=nil then
-  for key, animal in pairs(paleotest.hades_animals) do
-    local dna_part = "hades_paleotest:dna_part_"..animal;
+  for key, name in pairs(paleotest.hades_animals) do
+    local dna_part = "hades_paleotest:dna_part_"..key;
     minetest.register_craft({
         type = "shapeless",
-        output = "hades_paleotest:dna_"..animal,
+        output = "hades_paleotest:dna_"..key,
         recipe = {dna_part, dna_part, dna_part},
       })
   end
 end
 if minetest.get_modpath("hades_petz")~=nil then
 end
-if minetest.get_modpath("hades_villager")~=nil then
+if minetest.get_modpath("hades_villages")~=nil then
+  for key, name in pairs(paleotest.hades_villages) do
+    local dna_part = "hades_paleotest:dna_part_"..key;
+    minetest.register_craft({
+        output = "hades_paleotest:dna_"..key,
+        recipe = {{dna_part, dna_part, dna_part},
+                  {dna_part, dna_part, dna_part},
+                  {dna_part, dna_part, dna_part}},
+      })
+  end
 end
 
 

@@ -317,15 +317,23 @@ dna_cultivator.register_recipe("hades_paleotest:dna_velociraptor",
 
 -- for Hades Revisited
 if (minetest.get_modpath("hades_farming")~=nil) then
-  for seed, name in pairs(paleotest.hades_seeds) do
-    dna_cultivator.register_recipe("hades_paleotest:fossilized_"..seed.."_seeds",
-                               "hades_farming:seed_"..seed)
+  for key, name in pairs(paleotest.hades_seeds) do
+    dna_cultivator.register_recipe("hades_paleotest:fossilized_"..key.."_seeds",
+                               "hades_farming:seed_"..key)
   end
 end
 
 if (minetest.get_modpath("hades_animals")~=nil) then
-  for key, animal in pairs(paleotest.hades_animals) do
-dna_cultivator.register_recipe("hades_paleotest:dna_"..key,
-                               "hades_paleotest:embryo_"..key)
+  for key, name in pairs(paleotest.hades_animals) do
+    dna_cultivator.register_recipe("hades_paleotest:dna_"..key,
+                                   "hades_paleotest:embryo_"..key)
   end
 end
+
+if (minetest.get_modpath("hades_villages")~=nil) then
+  for key, name in pairs(paleotest.hades_villages) do
+    dna_cultivator.register_recipe("hades_paleotest:dna_"..key,
+                                   "hades_paleotest:embryo_"..key)
+  end
+end
+

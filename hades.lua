@@ -12,7 +12,10 @@ paleotest.hades_animals = {
     sheep = "Sheep",
   };
 paleotest.hades_petz = {};
-paleotest.hades_villager = {};
+paleotest.hades_villages = {
+  villager_male = "Villager Male",
+  villager_female = "Villager Female",
+};
 
 
 --

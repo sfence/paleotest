@@ -1,4 +1,4 @@
-----------------------
+---------------------
 -- Embrio Incubator --
 ----------------------
 ------ Ver 1.0 -------
@@ -324,28 +324,32 @@ minetest.register_node("hades_paleotest:embryo_incubator", {
 -- Animal Embryos --
 if minetest.get_modpath("hades_animals") then
   embryo_incubator.register_recipe("hades_paleotest:embryo_bee",
-                                 "hades_animals:bee", 4) -- 40s
+                                 "hades_animals:bee", 4) -- 40 s
   embryo_incubator.register_recipe("hades_paleotest:embryo_chicken",
-                                 "hades_animals:chicken", 128) -- 22min
+                                 "hades_animals:chicken", 128) -- 22 min
   embryo_incubator.register_recipe("hades_paleotest:embryo_bunny",
-                                 "hades_animals:bunny", 256) -- 43min
+                                 "hades_animals:bunny", 256) -- 43 min
   embryo_incubator.register_recipe("hades_paleotest:embryo_cow",
-                                 "hades_animals:cow", 16354) -- 2730min
+                                 "hades_animals:cow", 16354) -- 2730 min
   embryo_incubator.register_recipe("hades_paleotest:embryo_kitten",
-                                 "hades_animals:kitten", 512) -- 86min
+                                 "hades_animals:kitten", 512) -- 86 min
   embryo_incubator.register_recipe("hades_paleotest:embryo_panda",
-                                 "hades_animals:panda", 3072) -- 512min
+                                 "hades_animals:panda", 3072) -- 512 min
   embryo_incubator.register_recipe("hades_paleotest:embryo_penguin",
-                                 "hades_animals:penguin", 768) -- 128min
+                                 "hades_animals:penguin", 768) -- 128 min
   embryo_incubator.register_recipe("hades_paleotest:embryo_pumba",
-                                 "hades_animals:pumba", 1536) -- 256min
+                                 "hades_animals:pumba", 1536) -- 256 min
   embryo_incubator.register_recipe("hades_paleotest:embryo_rat",
-                                 "hades_animals:rat", 32) -- 5min
+                                 "hades_animals:rat", 32) -- 5 min
   embryo_incubator.register_recipe("hades_paleotest:embryo_sheep",
-                                 "hades_animals:sheep_white", 3840) -- 640min
+                                 "hades_animals:sheep_white", 3840) -- 640 min
 end
 if minetest.get_modpath("hades_petz") then
 end
-if minetest.get_modpath("hades_villager") then
+if minetest.get_modpath("hades_villages") then
+  embryo_incubator.register_recipe("hades_paleotest:embryo_villager_male",
+                                 "hades_villages:villager_male_egg", 8192) -- 1365 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_villager_female",
+                                 "hades_villages:villager_female_egg", 8192) -- 1365 min
 end
 
