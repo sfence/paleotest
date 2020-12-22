@@ -69,3 +69,48 @@ minetest.register_ore({
 	y_min          = -256,
 })
 
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "hades_paleotest:suspicious_tuff_recent",
+	wherein        = "hades_core:tuff",
+	clust_scarcity = 32 * 32 * 32,
+	clust_num_ores = 4,
+	clust_size     = 3,
+	y_max          = 256,
+	y_min          = -256,
+})
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "hades_paleotest:suspicious_tuff_recent",
+	wherein        = "hades_core:tuff",
+	clust_scarcity = 16 * 16 * 16,
+	clust_num_ores = 120,
+	clust_size     = 10,
+	y_max          = 256,
+	y_min          = -128,
+})
+
+-- Suspicious Ash --
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "hades_paleotest:suspicious_ash_recent",
+	wherein        = "hades_core:ash",
+	clust_scarcity = 32 * 32 * 32,
+	clust_num_ores = 4,
+	clust_size     = 3,
+	y_max          = 256,
+	y_min          = -256,
+})
+
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "hades_paleotest:suspicious_ash_recent",
+	wherein        = "hades_core:ash",
+	clust_scarcity = 16 * 16 * 16,
+	clust_num_ores = 40,
+	clust_size     = 10,
+	y_max          = 256,
+	y_min          = -16,
+})
+

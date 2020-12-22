@@ -4,32 +4,50 @@
 ------ Ver 2.0 ------
 
 local fossil_output = {
-	"hades_paleotest:dna_brachiosaurus", "hades_paleotest:dna_carnotaurus",
-	"hades_paleotest:dna_dunkleosteus", "hades_paleotest:dna_plesiosaurus",
-    "hades_paleotest:dna_mosasaurus","hades_paleotest:dna_quetzalcoatlus",
-    "hades_paleotest:dna_pteranodon", "hades_paleotest:dna_sarcosuchus",
-    "hades_paleotest:dna_spinosaurus", "hades_paleotest:dna_stegosaurus",
-    "hades_paleotest:dna_triceratops", "hades_paleotest:dna_tyrannosaurus",
-    "hades_paleotest:dna_velociraptor",
-	"hades_core:ash 3", "hades_core:gravel 3", "bones:bones",
-	"hades_core:ash 3", "hades_core:gravel 3", "bones:bones",
-    "hades_core:ash 3", "hades_core:gravel 3", "bones:bones"
+	"hades_paleotest:dna_part_brachiosaurus", "hades_paleotest:dna_part_carnotaurus",
+	"hades_paleotest:dna_part_dunkleosteus", "hades_paleotest:dna_part_plesiosaurus",
+    "hades_paleotest:dna_part_mosasaurus","hades_paleotest:dna_part_quetzalcoatlus",
+    "hades_paleotest:dna_part_pteranodon", "hades_paleotest:dna_part_sarcosuchus",
+    "hades_paleotest:dna_part_spinosaurus", "hades_paleotest:dna_part_stegosaurus",
+    "hades_paleotest:dna_part_triceratops", "hades_paleotest:dna_part_tyrannosaurus",
+    "hades_paleotest:dna_part_velociraptor",
+	"hades_core:ash 3", "hades_core:gravel 3", "hades_paleotest:bones",
+	"hades_core:ash 3", "hades_core:gravel 3", "hades_paleotest:bones",
+    "hades_core:ash 3", "hades_core:gravel 3", "hades_paleotest:bones"
 }
 local waste_fossil = {"hades_core:ash 3", "hades_core:gravel 3", "hades_core:cobble 3"}
 
 local bone_output = {
-    "hades_paleotest:dna_dire_wolf", "hades_paleotest:dna_elasmotherium",
-    "hades_paleotest:dna_mammoth", "hades_paleotest:dna_procoptodon",
-    "hades_paleotest:dna_smilodon", "hades_paleotest:dna_thylacoleo", "hades_core:ash 3",
-    "hades_core:gravel 3", "bones:bones"
+    "hades_paleotest:dna_part_dire_wolf", "hades_paleotest:dna_part_elasmotherium",
+    "hades_paleotest:dna_part_mammoth", "hades_paleotest:dna_part_procoptodon",
+    "hades_paleotest:dna_part_smilodon", "hades_paleotest:dna_part_thylacoleo", "hades_core:ash 3",
+    "hades_core:gravel 3", "hades_paleotest:bones"
 }
-local waste_bone = {"bones:bones", "hades_core:tuff", "hades_core:dirt 3"}
+local waste_bone = {"hades_paleotest:bones", "hades_core:tuff", "hades_core:dirt 3"}
 
 local plant_output = {
     "hades_paleotest:fossilized_cycad_seeds", "hades_paleotest:fossilized_horsetail_spores",
     "hades_paleotest:metasequoia_sapling_petrified"
 }
 local waste_plant = {"hades_core:coalblock", "hades_core:coal_lump 4"}
+
+local bone_recent_output = {"hades_paleotest:bones"};
+local waste_bone_recent = {"hades_paleotest:bones", "hades_core:tuff", "hades_core:ash", "hades_paleotest:bones", "hades_paleotest:bones"};
+
+local plant_recent_output = {"hades_core:tuff", "hades_core;fertile_sand"};
+local waste_plant_recent = {"hades_core:tuff", "hades_core;fertile_sand"};
+
+if (minetest.get_modpath("hades_farming")~=nil) then
+  for seed, name in pairs(paleotest.hades_seeds) do
+    table.insert(plant_recent_output, "hades_paleotest:fossilized_"..seed.."_seeds");
+  end
+end
+
+if (minetest.get_modpath("hades_animals")~=nil) then
+  for key, animal in pairs(paleotest.hades_animals) do
+    table.insert(bone_recent_output, "hades_paleotest:dna_part_"..key);
+  end
+end
 
 -----------------------
 -- Initial Functions --
@@ -46,6 +64,12 @@ minetest.register_on_mods_loaded(function()
     end
     for _, waste in pairs(waste_plant) do
         while #plant_output < 16 do table.insert(plant_output, waste) end
+    end
+    for _, waste in pairs(waste_bone_recent) do
+        while #bone_recent_output < 64 do table.insert(bone_recent_output, waste) end
+    end
+    for _, waste in pairs(waste_plant_recent) do
+        while #plant_recent_output < 16 do table.insert(plant_recent_output, waste) end
     end
 end)
 
@@ -126,7 +150,7 @@ end
 ----------
 
 minetest.register_node("hades_paleotest:fossil_analyzer", {
-    description = "Fossil Analyzer",
+    description = "Fossil Analyzer (connect to power)",
     tiles = {
         "paleotest_fossil_analyzer_top.png",
         "paleotest_fossil_analyzer_bottom.png",
@@ -141,6 +165,18 @@ minetest.register_node("hades_paleotest:fossil_analyzer", {
     is_ground_content = false,
     sounds = hades_sounds.node_sound_stone_defaults(),
     drawtype = "node",
+    
+    -- mesecon action
+    mesecons = {
+      effector = {
+        action_on = function(pos, node)
+          minetest.get_meta(pos):set_int("is_powered", 1);
+        end,
+        action_off = function(pos, node)
+          minetest.get_meta(pos):set_int("is_powered", 0);
+        end,
+      },
+    },
 
     can_dig = function(pos)
         local meta = minetest.get_meta(pos)
@@ -155,10 +191,12 @@ minetest.register_node("hades_paleotest:fossil_analyzer", {
         if not fossil_analyzer.recipes[stack:get_name()] then
             return false
         end
-        if 1 then
-          return false;
+        -- check if node is powered
+        local is_powered = minetest.get_meta(pos):get_int("is_powered");
+        if (is_powered==0) then
+          return true;
         end
-        -- add messecon effector action_on
+        
         local output_item = fossil_analyzer.recipes[stack:get_name()]()
         local analyzing_time = meta:get_int("analyzing_time") or 0
         analyzing_time = analyzing_time + 1
@@ -251,7 +289,13 @@ minetest.register_node("hades_paleotest:fossil_analyzer", {
         table.insert(drops, "hades_paleotest:fossil_analyzer")
         minetest.remove_node(pos)
         return drops
-    end
+    end,
+    
+    after_place_node = function(pos)
+      if (not minetest.global_exists("mesecon")) then
+        minetest.get_meta(pos):set_int("is_powered", 1);
+      end
+    end,
 })
 
 -------------------------
@@ -269,3 +313,13 @@ end)
 fossil_analyzer.register_recipe("hades_paleotest:plant_fossil", function()
     return plant_output[math.random(1, #plant_output)]
 end)
+
+-- for Haddes Revisited 
+fossil_analyzer.register_recipe("hades_paleotest:ancient_bones_recent", function()
+    return bone_recent_output[math.random(1, #bone_recent_output)]
+end)
+
+fossil_analyzer.register_recipe("hades_paleotest:plant_fossil_recent", function()
+    return plant_recent_output[math.random(1, #plant_recent_output)]
+end)
+

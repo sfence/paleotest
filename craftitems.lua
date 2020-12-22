@@ -111,7 +111,19 @@ minetest.register_craftitem("hades_paleotest:plant_fossil", { -- Plant Fossil
 	groups = {fossil = 1},
 })
 
+minetest.register_craftitem("hades_paleotest:plant_fossil_recent", { -- Plant Fossil
+	description = "Plant Fossil",
+	inventory_image = "paleotest_plant_fossil.png",
+	groups = {fossil = 1},
+})
+
 minetest.register_craftitem("hades_paleotest:ancient_bones", { -- Ancient Bones
+	description = "Ancient Bones",
+	inventory_image = "paleotest_ancient_bones.png",
+	groups = {fossil = 1},
+})
+
+minetest.register_craftitem("hades_paleotest:ancient_bones_recent", { -- Ancient Bones
 	description = "Ancient Bones",
 	inventory_image = "paleotest_ancient_bones.png",
 	groups = {fossil = 1},
@@ -135,6 +147,124 @@ minetest.register_craftitem("hades_paleotest:metasequoia_sapling_petrified", { -
 	groups = {fossil = 1},
 })
 
+-- Hades Revisited seeds
+if 1 then
+  for seed, name in pairs(paleotest.hades_seeds) do
+    minetest.register_craftitem("hades_paleotest:fossilized_"..seed.."_seeds", { 
+      description = "Fossilized "..name.." Seeds",
+      inventory_image = "paleotest_fossilized_"..seed.."_seeds.png",
+      groups = {fossil = 1},
+    })
+  end
+end
+
+---------------
+-- Nutrients --
+---------------
+
+minetest.register_craftitem("hades_paleotest:nutrients", { -- Nutrients
+	description = "Nutrients bottle",
+	inventory_image = "vessels_steel_bottle_inv.png",
+})
+
+---------------
+-- DNA Parts --
+---------------
+
+minetest.register_craftitem("hades_paleotest:dna_part_brachiosaurus", { -- Brachiosaurus DNA Part
+	description = "Brachiosaurus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_carnotaurus", { -- Carnotaurus DNA Part
+	description = "Carnotaurus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_dire_wolf", { -- Dire Wolf DNA Part
+	description = "Dire Wolf DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_dunkleosteus", { -- Dunkleosteus DNA Part
+	description = "Dunkleosteus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_elasmotherium", { -- Elasmotherium DNA Part
+	description = "Elasmotherium DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_mammoth", { -- Mammoth DNA Part
+	description = "Mammoth DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_mosasaurus", { -- Mosasaurus DNA Part
+	description = "Mosasaurus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_procoptodon", { -- Procoptodon DNA Part
+	description = "Procoptodon DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_plesiosaurus", { -- Plesiosaurus DNA Part
+	description = "Plesiosaurus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_pteranodon", { -- Pteranodon DNA Part
+	description = "Pteranodon DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_quetzalcoatlus", { -- Quetzalcoatlus DNA Part
+	description = "Quetzalcoatlus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_sarcosuchus", { -- Sarcosuchus DNA Part
+	description = "Sarcosuchus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_smilodon", { -- Smilodon DNA Part
+	description = "Smilodon DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_spinosaurus", { -- Spinosaurus DNA Part
+	description = "Spinosaurus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_stegosaurus", { -- Stegosaurus DNA Part
+	description = "Stegosaurus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_thylacoleo", { -- Thylacoleo DNA Part
+	description = "Thylacoleo DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_triceratops", { -- Triceratops DNA Part
+	description = "Triceratops DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_tyrannosaurus", { -- Tyrannosaurus DNA Part
+	description = "Tyrannosaurus DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
+
+minetest.register_craftitem("hades_paleotest:dna_part_velociraptor", { -- Velociraptor DNA Part
+	description = "Velociraptor DNA Part",
+	inventory_image = "paleotest_dna_part.png",
+})
 
 ---------
 -- DNA --
@@ -284,6 +414,20 @@ paleotest.register_embryo_sac("hades_paleotest:dunkleosteus",false)
 paleotest.register_embryo_sac("hades_paleotest:mosasaurus",false)
 
 paleotest.register_embryo_sac("hades_paleotest:plesiosaurus",true)
+
+-------------
+-- Embryos --
+------------
+
+if minetest.get_modpath("hades_animals") then
+  
+  for key, animal in pairs(paleotest.hades_animals) do
+    minetest.register_craftitem("hades_paleotest:embryo_"..key, {
+      description = animal.." embryo",
+      inventory_image = "paleotest_embryo.png",
+    })
+  end
+end
 
 ------------------
 -- Pursuit Ball --

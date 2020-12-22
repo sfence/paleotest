@@ -35,9 +35,9 @@ minetest.register_node("hades_paleotest:fossil_block", {
     sounds = hades_sounds.node_sound_stone_defaults()
 })
 
----------------------------
--- Suspicious Permafrost --
----------------------------
+---------------------
+-- Suspicious Tuff --
+---------------------
 
 minetest.register_node("hades_paleotest:suspicious_tuff", {
     description = "Suspicious Tuff",
@@ -47,11 +47,47 @@ minetest.register_node("hades_paleotest:suspicious_tuff", {
         max_items = 1,
         items = {
             {items = {"hades_paleotest:ancient_bones"}, rarity = 4},
-            {items = {"bones:bones"}, rarity = 3},
+            {items = {"hades_paleotest:bones"}, rarity = 3},
             {items = {"hades_core:tuff"}}
         }
     },
     sounds = hades_sounds.node_sound_stone_defaults()
+})
+
+minetest.register_node("hades_paleotest:suspicious_tuff_recent", {
+    description = "Suspicious Tuff (Recent)",
+    tiles = {"paleotest_suspicious_tuff.png"},
+    groups = {cracky=3, porous=1},
+    drop = {
+        max_items = 1,
+        items = {
+            {items = {"hades_paleotest:ancient_bones_recent"}, rarity = 3},
+            {items = {'hades_paleotest:plant_fossil_recent'}, rarity = 2},
+            {items = {"hades_paleotest:bones"}, rarity = 2},
+            {items = {'hades_paleotest:plant_fossil_recent'}, rarity = 2},
+            {items = {"hades_core:tuff"}}
+        }
+    },
+    sounds = hades_sounds.node_sound_stone_defaults()
+})
+
+-----------------------------
+-- Suspicious Vulcanic Ash --
+-----------------------------
+
+minetest.register_node("hades_paleotest:suspicious_ash_recent", {
+    description = "Suspicious Ash",
+    tiles = {"paleotest_suspicious_ash.png"},
+    groups = {crumbly=3, falling_node=1, ash=1, porous=1},
+    drop = {
+        max_items = 1,
+        items = {
+            {items = {"hades_paleotest:ancient_bones_recent"}, rarity = 4},
+            {items = {"hades_paleotest:bones"}, rarity = 3},
+            {items = {"hades_core:ash"}}
+        }
+    },
+    sounds = hades_sounds.node_sound_sand_defaults()
 })
 
 -----------
@@ -608,8 +644,10 @@ if minetest.get_modpath("hades_core") and paleotest.register_fence_rail then
 end
 
 if minetest.get_modpath("walls") then
-    walls.register("hades_paleotest:steel", "Steel Wall", {
-        "paleotest_steel_wall_top.png", "paleotest_steel_wall_top.png",
-        "paleotest_steel_wall.png"
-    }, "hades_core:steelblock", hades_sounds.node_sound_metal_defaults())
+    --walls.register("hades_paleotest:steel", "Steel Wall", {
+    --    "paleotest_steel_wall_top.png", "paleotest_steel_wall_top.png",
+    --    "paleotest_steel_wall.png"
+    --}, "hades_core:steelblock", hades_sounds.node_sound_metal_defaults())
+    walls.register("hades_paleotest:steel", "Steel Wall", 
+          "default_steel_block.png", "hades_core:steelblock", hades_sounds.node_sound_metal_defaults())
 end

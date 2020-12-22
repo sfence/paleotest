@@ -120,6 +120,7 @@ dofile(path.."/crafting.lua")
 dofile(path.."/ores.lua")
 dofile(path.."/fossil_analyzer.lua")
 dofile(path.."/dna_cultivator.lua")
+dofile(path.."/embryo_incubator.lua")
 dofile(path.."/feeders.lua")
 
 

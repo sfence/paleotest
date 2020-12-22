@@ -91,29 +91,99 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "cooking",
-	output = "hades_paleotest:dinosaur_meat_raw",
-	recipe = "hades_paleotest:dinosaur_meat_cooked",
+	output = "hades_paleotest:dinosaur_meat_cooked",
+	recipe = "hades_paleotest:dinosaur_meat_raw",
 	cooktime = 5
 })
 
 minetest.register_craft({
 	type = "cooking",
-	output = "hades_paleotest:mammal_meat_raw",
-	recipe = "hades_paleotest:mammal_meat_cooked",
+	output = "hades_paleotest:mammal_meat_cooked",
+	recipe = "hades_paleotest:mammal_meat_raw",
 	cooktime = 5
 })
 
 minetest.register_craft({
 	type = "cooking",
-	output = "hades_paleotest:reptile_meat_raw",
-	recipe = "hades_paleotest:reptile_meat_cooked",
+	output = "hades_paleotest:reptile_meat_cooked",
+	recipe = "hades_paleotest:reptile_meat_raw",
 	cooktime = 5
 })
 
 minetest.register_craft({
 	type = "cooking",
-	output = "hades_paleotest:fish_meat_raw",
-	recipe = "hades_paleotest:fish_meat_cooked",
+	output = "hades_paleotest:fish_meat_cooked",
+	recipe = "hades_paleotest:fish_meat_raw",
 	cooktime = 5
 })
+
+minetest.register_craft({
+    output = "hades_paleotest:nutrients",
+    recipe = {
+        {"hades_farming:flour", "hades_core:sugar", "hades_farnimg:flour"},
+        {"hades_core:sugar", "hades_food:bottle_olive_oil", "hades_core:sugar"},
+        {"hades_food:bottle_olive_oil", "vessels:steel_bottle", "hades_food:bottle_olive_oil"}
+    },
+    replacements = {{"hades_food:bottle_olive_oil", "vessels:steel_bottle"},},
+})
+
+if 1 then
+  local animals = {"brachiosaurus", "carnotaurus",
+    "pteranodon", "quetzalcoatlus", "sarcosuchus",
+    "spinosaurus", "stegosaurus", "triceratops",
+    "tyrannosaurus", "velociraptor"};
+  for animal in pairs(animals) do
+    local dna_part = "hades_paleotest:dna_part_"..animal;
+    minetest.register_craft({
+        output = "hades_paleotest:dna_"..animal,
+        recipe = {{dna_part, dna_part, dna_part},
+                  {dna_part, dna_part, dna_part},
+                  {dna_part, dna_part, dna_part}},
+      })
+  end
+end
+
+if 1 then
+  local animals = { "dire_wolf", "elasmotherium", "mammoth",
+    "procoptodon", "smilodon", "thylacoleo"};
+
+  for key, animal in pairs(animals) do
+    local dna_part = "hades_paleotest:dna_part_"..animal;
+    minetest.register_craft({
+        output = "hades_paleotest:dna_"..animal,
+        recipe = {{dna_part, dna_part, dna_part},
+                  {dna_part, dna_part, dna_part}},
+      })
+  end
+end
+
+if 1 then
+  local animals = { "dunkleosteus",
+    "mosasaurus", "plesiosaurus"};
+  for key, animal in pairs(animals) do
+    local dna_part = "hades_paleotest:dna_part_"..animal;
+    minetest.register_craft({
+        output = "hades_paleotest:dna_"..animal,
+        recipe = {{dna_part, dna_part, dna_part},
+                  {dna_part, dna_part, dna_part},
+                  {dna_part, dna_part, dna_part}},
+      })
+  end
+end
+
+if minetest.get_modpath("hades_animals")~=nil then
+  for key, animal in pairs(paleotest.hades_animals) do
+    local dna_part = "hades_paleotest:dna_part_"..animal;
+    minetest.register_craft({
+        type = "shapeless",
+        output = "hades_paleotest:dna_"..animal,
+        recipe = {dna_part, dna_part, dna_part},
+      })
+  end
+end
+if minetest.get_modpath("hades_petz")~=nil then
+end
+if minetest.get_modpath("hades_villager")~=nil then
+end
+
 

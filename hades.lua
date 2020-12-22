@@ -1,3 +1,20 @@
+
+paleotest.hades_seeds = { 
+    wheat = "Wheat", cotton = "Cotton",
+    spice = "Spice", potato = "Potato",
+    strawberry = "Strawberry", tomato = "Tomato",
+  };
+
+paleotest.hades_animals = {
+    bee = "Bee", chicken = "Chicken", bunny = "Bunny",
+    cow = "Cow", kitten = "Kitten", panda = "Panda", 
+    penguin = "Penguin", pumba = "Pumba", rat = "Rat", 
+    sheep = "Sheep",
+  };
+paleotest.hades_petz = {};
+paleotest.hades_villager = {};
+
+
 --
 -- Fence registration helper
 --
@@ -66,3 +83,4 @@ function paleotest.register_fence_rail(name, def)
 
  minetest.register_node(name, def)
 end
+

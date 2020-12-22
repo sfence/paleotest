@@ -86,7 +86,7 @@ end
 ----------
 
 minetest.register_node("hades_paleotest:dna_cultivator", {
-    description = "DNA Cultivator",
+    description = "DNA Cultivator (Connect to power and water.)",
     tiles = {
         "paleotest_dna_cultivator_top.png",
         "paleotest_dna_cultivator_bottom.png",
@@ -100,6 +100,19 @@ minetest.register_node("hades_paleotest:dna_cultivator", {
     is_ground_content = false,
     sounds = hades_sounds.node_sound_stone_defaults(),
     drawtype = "node",
+    
+    -- mssecon action
+    mesecons = {
+      effector = {
+        action_on = function(pos, node)
+          minetest.get_meta(pos):set_int("is_powered", 1);
+        end,
+        action_off = function(pos, node)
+          minetest.get_meta(pos):set_int("is_powered", 0);
+        end,
+      },
+    },
+    
     can_dig = function(pos)
         local meta = minetest.get_meta(pos)
         local inv = meta:get_inventory()
@@ -111,11 +124,17 @@ minetest.register_node("hades_paleotest:dna_cultivator", {
         local inv = meta:get_inventory()
         local stack = meta:get_inventory():get_stack("input", 1)
         if not dna_cultivator.recipes[stack:get_name()] then return false end
-        if 1 then
-          return false;
+        -- do test for water connection
+        local node_over = minetest.get_node({x=pos.x;y=pos.y+1;z=pos.z});
+        if (node_over.name~="pipeworks:entry_panel_loaded") then 
+          return true;
         end
-        -- do test for water in pipe here
-        -- add messecon effector action_on
+        -- check if node is powered
+        local is_powered = minetest.get_meta(pos):get_int("is_powered");
+        if (is_powered==0) then
+          return true;
+        end
+      
         local output_item = dna_cultivator.recipes[stack:get_name()]
         local cultivating_time = meta:get_int("cultivating_time") or 0
         cultivating_time = cultivating_time + 1
@@ -205,7 +224,17 @@ minetest.register_node("hades_paleotest:dna_cultivator", {
         table.insert(drops, "hades_paleotest:dna_cultivator")
         minetest.remove_node(pos)
         return drops
-    end
+    end,
+    
+    after_place_node = function(pos)
+      pipeworks.scan_for_pipe_objects(pos);
+      if (not minetest.global_exists("mesecon")) then
+        minetest.get_meta(pos):set_int("is_powered", 1);
+      end
+    end,
+    after_dig_node = function(pos)
+      pipeworks.scan_for_pipe_objects(pos);
+    end,
 })
 
 -------------------------
@@ -285,3 +314,18 @@ dna_cultivator.register_recipe("hades_paleotest:dna_tyrannosaurus",
 
 dna_cultivator.register_recipe("hades_paleotest:dna_velociraptor",
                                "hades_paleotest:egg_velociraptor")
+
+-- for Hades Revisited
+if (minetest.get_modpath("hades_farming")~=nil) then
+  for seed, name in pairs(paleotest.hades_seeds) do
+    dna_cultivator.register_recipe("hades_paleotest:fossilized_"..seed.."_seeds",
+                               "hades_farming:seed_"..seed)
+  end
+end
+
+if (minetest.get_modpath("hades_animals")~=nil) then
+  for key, animal in pairs(paleotest.hades_animals) do
+dna_cultivator.register_recipe("hades_paleotest:dna_"..key,
+                               "hades_paleotest:embryo_"..key)
+  end
+end
