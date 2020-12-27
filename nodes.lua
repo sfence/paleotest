@@ -29,7 +29,8 @@ minetest.register_node("hades_paleotest:fossil_block", {
         items = {
             {items = {'hades_paleotest:fossil'}, rarity = 4},
             {items = {'hades_paleotest:plant_fossil'}, rarity = 4},
-            {items = {'bones:bones'}, rarity = 4}, {items = {'hades_core:cobble'}}
+            {items = {'hades_paleotest:bones'}, rarity = 4},
+             {items = {'hades_core:cobble'}}
         }
     },
     sounds = hades_sounds.node_sound_stone_defaults()

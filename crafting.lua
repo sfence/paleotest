@@ -90,6 +90,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+    output = "hades_paleotest:embryo_incubator",
+    recipe = {
+        {"hades_core:steel_ingot", "glowcrystals:glowcrystal_block", "hades_core:steel_ingot"},
+        {"hades_core:glass", "pipeworks:storage_tank_0", "hades_core:glass"},
+        {"hades_core:steel_ingot", "hades_core:goldblock", "hades_core:steel_ingot"}
+    }
+})
+
+minetest.register_craft({
 	type = "cooking",
 	output = "hades_paleotest:dinosaur_meat_cooked",
 	recipe = "hades_paleotest:dinosaur_meat_raw",
@@ -120,7 +129,7 @@ minetest.register_craft({
 minetest.register_craft({
     output = "hades_paleotest:nutrients",
     recipe = {
-        {"hades_farming:flour", "hades_core:sugar", "hades_farnimg:flour"},
+        {"hades_farming:flour", "hades_core:sugar", "hades_farming:flour"},
         {"hades_core:sugar", "hades_food:bottle_olive_oil", "hades_core:sugar"},
         {"hades_food:bottle_olive_oil", "vessels:steel_bottle", "hades_food:bottle_olive_oil"}
     },
@@ -132,7 +141,7 @@ if 1 then
     "pteranodon", "quetzalcoatlus", "sarcosuchus",
     "spinosaurus", "stegosaurus", "triceratops",
     "tyrannosaurus", "velociraptor"};
-  for animal in pairs(animals) do
+  for key, animal in pairs(animals) do
     local dna_part = "hades_paleotest:dna_part_"..animal;
     minetest.register_craft({
         output = "hades_paleotest:dna_"..animal,

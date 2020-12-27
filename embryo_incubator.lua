@@ -1,5 +1,5 @@
 ---------------------
--- Embrio Incubator --
+-- Embryo Incubator --
 ----------------------
 ------ Ver 1.0 -------
 -----------------------
@@ -47,6 +47,7 @@ local function get_active_embryo_incubator_fs(item_percent)
         "list[context;nutrients_in;4,1.5;1,1;]",
         "list[context;output;7.75,0.25;1,1;]",
         "list[context;nutrients_out;7.75,1.5;1,1;]",
+        "label[2,2.75;"..minetest.colorize("#000000","Keep process running without interrupt!").."]",
         "listring[current_player;main]",
         "listring[context;input]", "listring[current_player;main]",
         "listring[context;output]", "listring[current_player;main]"
@@ -94,7 +95,8 @@ end
 ----------
 
 minetest.register_node("hades_paleotest:embryo_incubator", {
-    description = "Embrio incubator (Connect to power and water, don't interrrupt it, wait)",
+    description = "Embryo incubator",
+    _tt_help = "Connect to power and water".."\n".."Keep process running".."\n".."Allow embryos to grow like in uterus",
     tiles = {
         "paleotest_embryo_incubator_top.png",
         "paleotest_embryo_incubator_bottom.png",

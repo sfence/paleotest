@@ -147,6 +147,31 @@ minetest.register_craftitem("hades_paleotest:metasequoia_sapling_petrified", { -
 	groups = {fossil = 1},
 })
 
+minetest.register_craftitem("hades_paleotest:bones", { -- Fossil
+	description = "Fossilized bones",
+  _tt_help = "Unknown fossilized bones",
+	inventory_image = "paleotest_bones.png",
+	groups = {fossil = 1},
+})
+minetest.register_craftitem("hades_paleotest:bones_dinosaur", { -- Fossil
+	description = "Fossilized bones",
+  _tt_help = "Dinosaurus fossilized bones",
+	inventory_image = "paleotest_bones.png",
+	groups = {fossil = 1},
+})
+minetest.register_craftitem("hades_paleotest:bones_iceage", { -- Fossil
+	description = "Fossilized bones",
+  _tt_help = "Fossilized bones from iceage",
+	inventory_image = "paleotest_bones.png",
+	groups = {fossil = 1},
+})
+minetest.register_craftitem("hades_paleotest:bones_recent", { -- Fossil
+	description = "Fossilized bones",
+  _tt_help = "Quite young fossilized bones",
+	inventory_image = "paleotest_bones.png",
+	groups = {fossil = 1},
+})
+
 -- Hades Revisited seeds
 if 1 then
   for seed, name in pairs(paleotest.hades_seeds) do
@@ -459,6 +484,7 @@ if minetest.get_modpath("hades_animals") then
   for key, name in pairs(paleotest.hades_animals) do
     minetest.register_craftitem("hades_paleotest:embryo_"..key, {
       description = name.." embryo",
+      _tt_help = "Should be incubated",
       inventory_image = "paleotest_embryo.png",
     })
   end
@@ -468,6 +494,7 @@ if minetest.get_modpath("hades_villages") then
   for key, name in pairs(paleotest.hades_villages) do
     minetest.register_craftitem("hades_paleotest:embryo_"..key, {
       description = name.." embryo",
+      _tt_help = "Should be incubated",
       inventory_image = "paleotest_embryo.png",
     })
   end

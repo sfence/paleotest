@@ -86,7 +86,8 @@ end
 ----------
 
 minetest.register_node("hades_paleotest:dna_cultivator", {
-    description = "DNA Cultivator (Connect to power and water.)",
+    description = "DNA Cultivator",
+    _tt_help = "Connect to power and water".."\n".."Cultivate DNA into eggs, embryos etc.",
     tiles = {
         "paleotest_dna_cultivator_top.png",
         "paleotest_dna_cultivator_bottom.png",

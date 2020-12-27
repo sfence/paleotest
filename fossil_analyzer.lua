@@ -11,9 +11,9 @@ local fossil_output = {
     "hades_paleotest:dna_part_spinosaurus", "hades_paleotest:dna_part_stegosaurus",
     "hades_paleotest:dna_part_triceratops", "hades_paleotest:dna_part_tyrannosaurus",
     "hades_paleotest:dna_part_velociraptor",
-	"hades_core:ash 3", "hades_core:gravel 3", "hades_paleotest:bones",
-	"hades_core:ash 3", "hades_core:gravel 3", "hades_paleotest:bones",
-    "hades_core:ash 3", "hades_core:gravel 3", "hades_paleotest:bones"
+	"hades_core:ash 3", "hades_core:gravel 3", "hades_paleotest:bones_dinosaur",
+	"hades_core:ash 3", "hades_core:gravel 3", "hades_paleotest:bones_dinosaur",
+    "hades_core:ash 3", "hades_core:gravel 3", "hades_paleotest:bones_dinosaur"
 }
 local waste_fossil = {"hades_core:ash 3", "hades_core:gravel 3", "hades_core:cobble 3"}
 
@@ -21,9 +21,9 @@ local bone_output = {
     "hades_paleotest:dna_part_dire_wolf", "hades_paleotest:dna_part_elasmotherium",
     "hades_paleotest:dna_part_mammoth", "hades_paleotest:dna_part_procoptodon",
     "hades_paleotest:dna_part_smilodon", "hades_paleotest:dna_part_thylacoleo", "hades_core:ash 3",
-    "hades_core:gravel 3", "hades_paleotest:bones"
+    "hades_core:gravel 3", "hades_paleotest:bones_iceage"
 }
-local waste_bone = {"hades_paleotest:bones", "hades_core:tuff", "hades_core:dirt 3"}
+local waste_bone = {"hades_paleotest:bones_iceage", "hades_core:tuff", "hades_core:dirt 3"}
 
 local plant_output = {
     "hades_paleotest:fossilized_cycad_seeds", "hades_paleotest:fossilized_horsetail_spores",
@@ -31,11 +31,11 @@ local plant_output = {
 }
 local waste_plant = {"hades_core:coalblock", "hades_core:coal_lump 4"}
 
-local bone_recent_output = {"hades_paleotest:bones"};
-local waste_bone_recent = {"hades_paleotest:bones", "hades_core:tuff", "hades_core:ash", "hades_paleotest:bones", "hades_paleotest:bones"};
+local bone_recent_output = {"hades_paleotest:bones_recent"};
+local waste_bone_recent = {"hades_paleotest:bones_recent", "hades_core:tuff", "hades_core:ash", "hades_paleotest:bones_recent", "hades_paleotest:bones_recent"};
 
-local plant_recent_output = {"hades_core:tuff", "hades_core;fertile_sand"};
-local waste_plant_recent = {"hades_core:tuff", "hades_core;fertile_sand"};
+local plant_recent_output = {"hades_core:tuff", "hades_core:fertile_sand"};
+local waste_plant_recent = {"hades_core:tuff", "hades_core:fertile_sand"};
 
 if (minetest.get_modpath("hades_farming")~=nil) then
   for key, name in pairs(paleotest.hades_seeds) do
@@ -156,7 +156,8 @@ end
 ----------
 
 minetest.register_node("hades_paleotest:fossil_analyzer", {
-    description = "Fossil Analyzer (connect to power)",
+    description = "Fossil Analyzer",
+    _tt_help = "Connect to power".."\n".."Analyze fossils and try to find something useful",
     tiles = {
         "paleotest_fossil_analyzer_top.png",
         "paleotest_fossil_analyzer_bottom.png",

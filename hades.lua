@@ -1,4 +1,23 @@
 
+paleotest.dinosaurs = {
+    brachiosaurus = "Brachiosaurus", carnotaurus = "Carnotaurus",
+    pteranodon = "Pteranodon", quetzalcoatlus = "Quetzalcoatlus", 
+    sarcosuchus = "Sarcosuchus", spinosaurus = "Spinosaurus", 
+    stegosaurus = "Stegosaurus", triceratops = "Triceratops",
+    tyrannosaurus = "Tyrannosaurus", velociraptor = "Velociraptor"
+  };
+
+paleotest.iceage_animals = { 
+    dire_wolf = "Dire_wolf", elasmotherium = "Elasmotherium",
+    mammoth = "Mammoth", procoptodon = "Procoptodon",
+    smilodon = "Smilodon", thylacoleo = "Thylacoleo"
+  };
+
+paleotest.water_dinosaurs = {
+    dunkleosteus = "Dunkleosteus", mosasaurus = "Mosasaurus", 
+    plesiosaurus = "Plesiosaurus"
+  };
+
 paleotest.hades_seeds = { 
     wheat = "Wheat", cotton = "Cotton",
     spice = "Spice", potato = "Potato",
@@ -16,6 +35,8 @@ paleotest.hades_villages = {
   villager_male = "Villager Male",
   villager_female = "Villager Female",
 };
+
+minetest.register_alias("default:diamond", "hades_core:diamond");
 
 
 --
