@@ -29,7 +29,8 @@ minetest.register_node("hades_paleotest:fossil_block", {
         items = {
             {items = {'hades_paleotest:fossil'}, rarity = 4},
             {items = {'hades_paleotest:plant_fossil'}, rarity = 4},
-            {items = {'hades_paleotest:bones'}, rarity = 4},
+            {items = {'hades_paleotest:bones_dinosaur'}, rarity = 4},
+            {items = {'hades_paleotest:bones'}, rarity = 5},
              {items = {'hades_core:cobble'}}
         }
     },
@@ -48,7 +49,8 @@ minetest.register_node("hades_paleotest:suspicious_tuff", {
         max_items = 1,
         items = {
             {items = {"hades_paleotest:ancient_bones"}, rarity = 4},
-            {items = {"hades_paleotest:bones"}, rarity = 3},
+            {items = {"hades_paleotest:bones_iceage"}, rarity = 3},
+            {items = {"hades_paleotest:bones"}, rarity = 4},
             {items = {"hades_core:tuff"}}
         }
     },
@@ -64,8 +66,9 @@ minetest.register_node("hades_paleotest:suspicious_tuff_recent", {
         items = {
             {items = {"hades_paleotest:ancient_bones_recent"}, rarity = 3},
             {items = {'hades_paleotest:plant_fossil_recent'}, rarity = 2},
-            {items = {"hades_paleotest:bones"}, rarity = 2},
+            {items = {"hades_paleotest:bones_recent"}, rarity = 2},
             {items = {'hades_paleotest:plant_fossil_recent'}, rarity = 2},
+            {items = {"hades_paleotest:bones"}, rarity = 8},
             {items = {"hades_core:tuff"}}
         }
     },

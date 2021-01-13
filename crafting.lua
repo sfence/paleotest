@@ -133,7 +133,11 @@ minetest.register_craft({
         {"hades_core:sugar", "hades_food:bottle_olive_oil", "hades_core:sugar"},
         {"hades_food:bottle_olive_oil", "vessels:steel_bottle", "hades_food:bottle_olive_oil"}
     },
-    replacements = {{"hades_food:bottle_olive_oil", "vessels:steel_bottle"},},
+    replacements = {
+        {"hades_food:bottle_olive_oil", "vessels:glass_bottle"},
+        {"hades_food:bottle_olive_oil", "vessels:glass_bottle"},
+        {"hades_food:bottle_olive_oil", "vessels:glass_bottle"},
+      },
 })
 
 if 1 then

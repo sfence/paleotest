@@ -155,9 +155,11 @@ end
 -- Node --
 ----------
 
+local def_desc = "Fossil Analyzer";
+
 minetest.register_node("hades_paleotest:fossil_analyzer", {
-    description = "Fossil Analyzer",
-    _tt_help = "Connect to power".."\n".."Analyze fossils and try to find something useful",
+    description = def_desc,
+    _tt_help = "Connect to power".."\n".."Analyze fossils and try to find something useful.",
     tiles = {
         "paleotest_fossil_analyzer_top.png",
         "paleotest_fossil_analyzer_bottom.png",
@@ -284,6 +286,7 @@ minetest.register_node("hades_paleotest:fossil_analyzer", {
     on_construct = function(pos)
         local meta = minetest.get_meta(pos)
         meta:set_string("formspec", fossil_analyzer_fs)
+        meta:set_string("infotext", def_desc)
         local inv = meta:get_inventory()
         inv:set_size("input", 1)
         inv:set_size("output", 4)

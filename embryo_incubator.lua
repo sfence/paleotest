@@ -94,9 +94,11 @@ end
 -- Node --
 ----------
 
+local def_desc = "Embryo incubator";
+
 minetest.register_node("hades_paleotest:embryo_incubator", {
-    description = "Embryo incubator",
-    _tt_help = "Connect to power and water".."\n".."Keep process running".."\n".."Allow embryos to grow like in uterus",
+    description = def_desc,
+    _tt_help = "Connect to power and water".."\n".."Keep process running".."\n".."Allow embryos to grow like in uterus.".."\n".."Use nutrients to support embryos grow. Depends on animal size.".."\n".."Etc one nutrient per kilogram for bigger animals (from 32kg). Small animals (to 32kg) have lower effectivity.",
     tiles = {
         "paleotest_embryo_incubator_top.png",
         "paleotest_embryo_incubator_bottom.png",
@@ -292,6 +294,7 @@ minetest.register_node("hades_paleotest:embryo_incubator", {
     on_construct = function(pos)
         local meta = minetest.get_meta(pos)
         meta:set_string("formspec", embryo_incubator_fs)
+        meta:set_string("infotext", def_desc)
         local inv = meta:get_inventory()
         inv:set_size("input", 1)
         inv:set_size("nutrients_in", 1)
@@ -322,36 +325,41 @@ minetest.register_node("hades_paleotest:embryo_incubator", {
 -- Recipe Registration --
 -------------------------
 
+-- etc one nutrient for 1kg from 32kg size.
+-- down limit is 4 nutrients per animal.
+-- animal lower then 32kg, use 4+((28/32)*mass)
+
 
 -- Animal Embryos --
 if minetest.get_modpath("hades_animals") then
-  embryo_incubator.register_recipe("hades_paleotest:embryo_bee",
+  embryo_incubator.register_recipe("hades_paleotest:embryo_bee", -- 0.2 g
                                  "hades_animals:bee", 4) -- 40 s
-  embryo_incubator.register_recipe("hades_paleotest:embryo_chicken",
-                                 "hades_animals:chicken", 128) -- 22 min
-  embryo_incubator.register_recipe("hades_paleotest:embryo_bunny",
-                                 "hades_animals:bunny", 256) -- 43 min
-  embryo_incubator.register_recipe("hades_paleotest:embryo_cow",
-                                 "hades_animals:cow", 16354) -- 2730 min
-  embryo_incubator.register_recipe("hades_paleotest:embryo_kitten",
-                                 "hades_animals:kitten", 512) -- 86 min
-  embryo_incubator.register_recipe("hades_paleotest:embryo_panda",
-                                 "hades_animals:panda", 3072) -- 512 min
-  embryo_incubator.register_recipe("hades_paleotest:embryo_penguin",
-                                 "hades_animals:penguin", 768) -- 128 min
-  embryo_incubator.register_recipe("hades_paleotest:embryo_pumba",
-                                 "hades_animals:pumba", 1536) -- 256 min
-  embryo_incubator.register_recipe("hades_paleotest:embryo_rat",
-                                 "hades_animals:rat", 32) -- 5 min
-  embryo_incubator.register_recipe("hades_paleotest:embryo_sheep",
-                                 "hades_animals:sheep_white", 3840) -- 640 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_chicken", -- 780 g
+                                 "hades_animals:chicken", 5) -- 1 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_bunny", -- 1.75 kg
+                                 "hades_animals:bunny", 6) -- 1 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_cow", -- 750 kg
+                                 "hades_animals:cow", 750) -- 125 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_kitten", -- 4 kg
+                                 "hades_animals:kitten", 8) -- 2 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_panda", -- 110 kg
+                                 "hades_animals:panda", 110) -- 19 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_penguin", -- 23 kg
+                                 "hades_animals:penguin", 24) -- 4 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_pumba", -- 90 kg
+                                 "hades_animals:pumba", 90) -- 15 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_rat", -- 150 g
+                                 "hades_animals:rat", 4) -- 1 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_sheep", -- 100 kg
+                                 "hades_animals:sheep_white", 100) -- 17 min
 end
 if minetest.get_modpath("hades_petz") then
 end
 if minetest.get_modpath("hades_villages") then
-  embryo_incubator.register_recipe("hades_paleotest:embryo_villager_male",
-                                 "hades_villages:villager_male_egg", 8192) -- 1365 min
-  embryo_incubator.register_recipe("hades_paleotest:embryo_villager_female",
-                                 "hades_villages:villager_female_egg", 8192) -- 1365 min
+  -- two more nutrients because of controled brain grow 
+  embryo_incubator.register_recipe("hades_paleotest:embryo_villager_male", -- 80 kg
+                                 "hades_villages:villager_male_egg", 160) -- 27 min
+  embryo_incubator.register_recipe("hades_paleotest:embryo_villager_female", -- 80 kg
+                                 "hades_villages:villager_female_egg", 160) -- 27 min
 end
 
