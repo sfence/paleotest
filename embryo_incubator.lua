@@ -353,6 +353,10 @@ if minetest.get_modpath("hades_animals") then
   embryo_incubator.register_recipe("hades_paleotest:embryo_sheep", -- 100 kg
                                  "hades_animals:sheep_white", 100) -- 17 min
 end
+if minetest.get_modpath("hades_horse") then
+  embryo_incubator.register_recipe("hades_paleotest:embryo_horse", -- 690 kg
+                                 "hades_horse:horse", 690) -- 115 min
+end
 if minetest.get_modpath("hades_petz") then
 end
 if minetest.get_modpath("hades_villages") then

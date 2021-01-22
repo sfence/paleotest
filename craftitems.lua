@@ -173,11 +173,38 @@ minetest.register_craftitem("hades_paleotest:bones_recent", { -- Fossil
 })
 
 -- Hades Revisited seeds
-if 1 then
+if (minetest.get_modpath("hades_farming")~=nil) then
   for seed, name in pairs(paleotest.hades_seeds) do
     minetest.register_craftitem("hades_paleotest:fossilized_"..seed.."_seeds", { 
       description = "Fossilized "..name.." Seeds",
       inventory_image = "paleotest_fossilized_"..seed.."_seeds.png",
+      groups = {fossil = 1},
+    })
+  end
+end
+if (minetest.get_modpath("hades_trees")~=nil) then
+  for sapling, name in pairs(paleotest.hades_sapling) do
+    minetest.register_craftitem("hades_paleotest:fossilized_"..sapling.."_sapling", { 
+      description = "Fossilized "..name.." Sapling",
+      inventory_image = "paleotest_fossilized_"..sapling.."_sapling.png",
+      groups = {fossil = 1},
+    })
+  end
+end
+if (minetest.get_modpath("hades_extrafarming")~=nil) then
+  for seed, name in pairs(paleotest.hades_extra_seeds) do
+    minetest.register_craftitem("hades_paleotest:fossilized_"..seed.."_seeds", { 
+      description = "Fossilized "..name.." Seeds",
+      inventory_image = "paleotest_fossilized_"..seed.."_seeds.png",
+      groups = {fossil = 1},
+    })
+  end
+end
+if (paleotest.hades_cool_sapling~=nil) then
+  for sapling, name in pairs(paleotest.hades_cool_sapling) do
+    minetest.register_craftitem("hades_paleotest:fossilized_cool_"..sapling.."_sapling", { 
+      description = "Fossilized Cool "..name.." Sapling",
+      inventory_image = "paleotest_fossilized_cool_"..sapling.."_sapling.png",
       groups = {fossil = 1},
     })
   end
@@ -293,6 +320,15 @@ minetest.register_craftitem("hades_paleotest:dna_part_velociraptor", { -- Veloci
 
 if minetest.get_modpath("hades_animals") then
   for key, name in pairs(paleotest.hades_animals) do
+    minetest.register_craftitem("hades_paleotest:dna_part_"..key, {
+      description = name.." DNA Part",
+      inventory_image = "paleotest_dna_part.png",
+    })
+  end
+end
+
+if minetest.get_modpath("hades_horse") then
+  for key, name in pairs(paleotest.hades_horse) do
     minetest.register_craftitem("hades_paleotest:dna_part_"..key, {
       description = name.." DNA Part",
       inventory_image = "paleotest_dna_part.png",
@@ -417,6 +453,15 @@ if minetest.get_modpath("hades_animals") then
   end
 end
 
+if minetest.get_modpath("hades_horse") then
+  for key, name in pairs(paleotest.hades_horse) do
+    minetest.register_craftitem("hades_paleotest:dna_"..key, {
+      description = name.." DNA",
+      inventory_image = "paleotest_dna.png",
+    })
+  end
+end
+
 if minetest.get_modpath("hades_villages") then
   for key, name in pairs(paleotest.hades_villages) do
     minetest.register_craftitem("hades_paleotest:dna_"..key, {
@@ -481,6 +526,16 @@ paleotest.register_embryo_sac("hades_paleotest:plesiosaurus",true)
 ------------
 
 if minetest.get_modpath("hades_animals") then
+  for key, name in pairs(paleotest.hades_animals) do
+    minetest.register_craftitem("hades_paleotest:embryo_"..key, {
+      description = name.." embryo",
+      _tt_help = "Should be incubated",
+      inventory_image = "paleotest_embryo.png",
+    })
+  end
+end
+
+if minetest.get_modpath("hades_horse") then
   for key, name in pairs(paleotest.hades_animals) do
     minetest.register_craftitem("hades_paleotest:embryo_"..key, {
       description = name.." embryo",

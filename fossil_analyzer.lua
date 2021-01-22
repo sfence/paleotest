@@ -42,9 +42,30 @@ if (minetest.get_modpath("hades_farming")~=nil) then
     table.insert(plant_recent_output, "hades_paleotest:fossilized_"..key.."_seeds");
   end
 end
+if (minetest.get_modpath("hades_trees")~=nil) then
+  for key, name in pairs(paleotest.hades_sapling) do
+    table.insert(plant_recent_output, "hades_paleotest:fossilized_"..key.."_sapling");
+  end
+end
+if (minetest.get_modpath("hades_extrafarming")~=nil) then
+  for key, name in pairs(paleotest.hades_extra_seeds) do
+    table.insert(plant_recent_output, "hades_paleotest:fossilized_"..key.."_seeds");
+  end
+end
+if (paleotest.hades_cool_sapling) then
+  for key, name in pairs(paleotest.hades_cool_sapling) do
+    table.insert(plant_recent_output, "hades_paleotest:fossilized_cool_"..key.."_sapling");
+  end
+end
 
 if (minetest.get_modpath("hades_animals")~=nil) then
   for key, name in pairs(paleotest.hades_animals) do
+    table.insert(bone_recent_output, "hades_paleotest:dna_part_"..key);
+  end
+end
+
+if (minetest.get_modpath("hades_horse")~=nil) then
+  for key, name in pairs(paleotest.hades_horse) do
     table.insert(bone_recent_output, "hades_paleotest:dna_part_"..key);
   end
 end

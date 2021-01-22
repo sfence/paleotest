@@ -327,8 +327,36 @@ if (minetest.get_modpath("hades_farming")~=nil) then
   end
 end
 
+if (minetest.get_modpath("hades_trees")~=nil) then
+  for key, name in pairs(paleotest.hades_sapling) do
+    dna_cultivator.register_recipe("hades_paleotest:fossilized_"..key.."_sapling",
+                               "hades_trees:"..key.."_sapling")
+  end
+end
+
+if (minetest.get_modpath("hades_extrafarming")~=nil) then
+  for key, name in pairs(paleotest.hades_extra_seeds) do
+    dna_cultivator.register_recipe("hades_paleotest:fossilized_"..key.."_seeds",
+                               "hades_extrafarming:seed_"..key)
+  end
+end
+
+if (paleotest.hades_cool_sapling~=nil) then
+  for key, name in pairs(paleotest.hades_cool_sapling) do
+    dna_cultivator.register_recipe("hades_paleotest:fossilized_cool_"..key.."_sapling",
+                               key..":sapling")
+  end
+end
+
 if (minetest.get_modpath("hades_animals")~=nil) then
   for key, name in pairs(paleotest.hades_animals) do
+    dna_cultivator.register_recipe("hades_paleotest:dna_"..key,
+                                   "hades_paleotest:embryo_"..key)
+  end
+end
+
+if (minetest.get_modpath("hades_horse")~=nil) then
+  for key, name in pairs(paleotest.hades_horse) do
     dna_cultivator.register_recipe("hades_paleotest:dna_"..key,
                                    "hades_paleotest:embryo_"..key)
   end
