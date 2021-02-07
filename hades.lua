@@ -92,6 +92,7 @@ paleotest.hades_villages = {
 
 minetest.register_alias("default:diamond", "hades_core:diamond");
 minetest.register_alias("hades_trees:common_sapling", "hades_trees:sapling");
+minetest.register_alias("hades_trees:cjtree_sapling", "hades_trees:cultivated_jungle_sapling");
 minetest.register_alias("bamboo:sapling", "bamboo:sprout");
 minetest.register_alias("hades_extrafarming:seed_pepper", "hades_extrafarming:peppercorn");
 
