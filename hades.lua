@@ -72,6 +72,10 @@ for sapling, name in pairs(hades_cool_sapling) do
   end
 end
 
+paleotest.hades_technic_sapling = { 
+    rubber_tree = "Rubber tree",
+  };
+
 paleotest.hades_animals = {
     bee = "Bee", chicken = "Chicken", bunny = "Bunny",
     cow = "Cow", kitten = "Kitten", panda = "Panda", 

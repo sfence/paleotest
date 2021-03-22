@@ -57,6 +57,11 @@ if (paleotest.hades_cool_sapling) then
     table.insert(plant_recent_output, "hades_paleotest:fossilized_cool_"..key.."_sapling");
   end
 end
+if (minetest.get_modpath("hades_technic_sapling")~=nil) then
+  for key, name in pairs(paleotest.hades_technic_sapling) do
+    table.insert(plant_recent_output, "hades_paleotest:fossilized_"..key.."_sapling");
+  end
+end
 
 if (minetest.get_modpath("hades_animals")~=nil) then
   for key, name in pairs(paleotest.hades_animals) do

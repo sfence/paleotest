@@ -209,6 +209,15 @@ if (paleotest.hades_cool_sapling~=nil) then
     })
   end
 end
+if (minetest.get_modpath("hades_technic_worldgen")~=nil) then
+  for sapling, name in pairs(paleotest.hades_technic_sapling) do
+    minetest.register_craftitem("hades_paleotest:fossilized_"..sapling.."_sapling", { 
+      description = "Fossilized "..name.." Sapling",
+      inventory_image = "paleotest_fossilized_"..sapling.."_sapling.png",
+      groups = {fossil = 1},
+    })
+  end
+end
 
 ---------------
 -- Nutrients --

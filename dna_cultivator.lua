@@ -348,6 +348,13 @@ if (paleotest.hades_cool_sapling~=nil) then
   end
 end
 
+if (minetest.get_modpath("hades_technic_worldgen")~=nil) then
+  for key, name in pairs(paleotest.hades_technic_sapling) do
+    dna_cultivator.register_recipe("hades_paleotest:fossilized_"..key.."_sapling",
+                               "hades_technic_worldgen:"..key.."_sapling")
+  end
+end
+
 if (minetest.get_modpath("hades_animals")~=nil) then
   for key, name in pairs(paleotest.hades_animals) do
     dna_cultivator.register_recipe("hades_paleotest:dna_"..key,
